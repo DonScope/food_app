@@ -11,7 +11,7 @@ class PaymentProcess extends StatefulWidget {
 }
 
 class _PaymentProcessState extends State<PaymentProcess> {
-  int _selectedIndex = 0;
+  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +54,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                   SizedBox(height: 20),
                   InkWell(
                     onTap: () {
-                      _selectedIndex = _selectedIndex == 1 ? 0 : 1;
+                      selectedIndex = selectedIndex == 1 ? 0 : 1;
                       setState(() {});
                     },
                     child: Container(
@@ -64,7 +64,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             color: Color.fromRGBO(255, 253, 253, 1),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                                color: _selectedIndex == 1
+                                color: selectedIndex == 1
                                     ? Colors.green
                                     : Colors.transparent,
                                 width: 1.5)),
@@ -75,7 +75,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                   SizedBox(height: 20),
                   InkWell(
                     onTap: () {
-                      _selectedIndex = _selectedIndex == 2 ? 0 : 2;
+                      selectedIndex = selectedIndex == 2 ? 0 : 2;
                       setState(() {});
                     },
                     child: Container(
@@ -85,7 +85,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             color: Color.fromRGBO(255, 253, 253, 1),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                                color: _selectedIndex == 2
+                                color: selectedIndex == 2
                                     ? Colors.green
                                     : Colors.transparent,
                                 width: 1.5)),
@@ -96,7 +96,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                   SizedBox(height: 20),
                   InkWell(
                     onTap: () {
-                      _selectedIndex = _selectedIndex == 3 ? 0 : 3;
+                      selectedIndex = selectedIndex == 3 ? 0 : 3;
                       setState(() {});
                     },
                     child: Container(
@@ -106,7 +106,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             color: Color.fromRGBO(255, 253, 253, 1),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                                color: _selectedIndex == 3
+                                color: selectedIndex == 3
                                     ? Colors.green
                                     : Colors.transparent,
                                 width: 1.5)),
@@ -118,7 +118,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                   InkWell(
                       enableFeedback: true,
                       onTap: () {
-                        if (_selectedIndex != 0) {
+                        if (selectedIndex != 0) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -142,10 +142,10 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
                             colors: [
-                              _selectedIndex == 0
+                              selectedIndex == 0
                                   ? Colors.grey
                                   : Color.fromRGBO(83, 232, 139, 1),
-                              _selectedIndex == 0
+                              selectedIndex == 0
                                   ? Colors.grey
                                   : Color.fromRGBO(21, 190, 119, 1),
                             ],
