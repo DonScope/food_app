@@ -14,6 +14,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+bool isChecked1 = false;
+  bool isChecked2 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,48 +80,53 @@ class _SignUpPageState extends State<SignUpPage> {
                     ic: Icon(Icons.remove_red_eye),
                   ),
                   SizedBox(height: 20.h),
-             Row(
-      children: [
-        Container(
-          width: 22,
-          height: 22,
-          child: Image(
-            image: AssetImage("assets/CheckIcon.png"),
-            alignment: Alignment.center,
-          ),
+                Row(
+
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Checkbox(
+              value: isChecked1,
+              onChanged: (bool? newValue) {
+                setState(() {
+                  isChecked1 = newValue ?? false;
+                });
+              },
+              activeColor: Colors.blue,
+            ),
+            SizedBox(width: 8),
+            Text(
+              "Keep Me Signed In",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
-        SizedBox(width: 8),
-        Text(
-          "Keep Me Signed In",
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 12.sp,
-            fontWeight: FontWeight.bold,
-          ),
+                Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Checkbox(
+              value: isChecked2,
+              onChanged: (bool? newValue) {
+                setState(() {
+                  isChecked2 = newValue ?? false;
+                });
+              },
+              activeColor: Colors.blue,
+            ),
+            SizedBox(width: 8),
+            Text(
+              "Email Me About Special Pricing",
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
-      ],
-    ),
-              Row(
-      children: [
-        Container(
-          width: 22,
-          height: 22,
-          child: Image(
-            image: AssetImage("assets/CheckIcon.png"),
-            alignment: Alignment.center,
-          ),
-        ),
-        SizedBox(width: 8),
-        Text(
-          "Email Me About Special Pricing",
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 12.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
-    ),
                   SizedBox(height: 20.h),
                   Center(
                     child: InkWell(
@@ -162,6 +169,4 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-
- 
 }

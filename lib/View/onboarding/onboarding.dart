@@ -9,6 +9,7 @@ class OnBoarding extends StatelessWidget {
     return CupertinoApp(
       home: OnBoardingSlider(
         headerBackgroundColor: Colors.white,
+        pageBackgroundColor: Colors.white,
         onFinish: (){ 
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage(),));
         },

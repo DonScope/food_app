@@ -5,7 +5,7 @@ import 'package:food_app/View/RegistrationProcess/Sign_up_Page.dart';
 import 'package:food_app/View/ResetPassword/SelectMethod.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 import 'package:food_app/View/Widgets/CustomLoginButtons.dart';
-import 'package:food_app/View/Widgets/CustomTextField.dart';
+import 'package:food_app/View/Widgets/CustomTextFieldWithImage.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -57,9 +57,9 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   SizedBox(height: 50.h),
-                  CustomTextField(hintText: "Email"),
+                  Customtextfieldwithimage(hintText: "Email"),
                   SizedBox(height: 20.h),
-                  CustomTextField(
+                  Customtextfieldwithimage(
                     hintText: "Password",
                     obscureText: true,
                   ),
