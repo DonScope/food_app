@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/RegistrationProcess/Sign_in_Page.dart';
+import 'package:food_app/View/RegistrationProcess/Log_in_page.dart';
 import 'package:food_app/View/RegistrationProcess/Signup_Process.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 import 'package:food_app/View/Widgets/CustomTextFieldWithImage.dart';
@@ -44,7 +43,7 @@ bool isChecked1 = false;
             ),
           ),
           Positioned(
-            top: 300.h,
+            top: 280.h,
             child: Container(
               padding: EdgeInsets.all(10.w),
               child: Center(
@@ -60,12 +59,13 @@ bool isChecked1 = false;
             ),
           ),
           SingleChildScrollView(
+                 physics: NeverScrollableScrollPhysics(),
             child: Padding(
               padding: EdgeInsets.all(10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 300.h),
+                  SizedBox(height: 270.h),
                   SizedBox(height: 50.h),
                   Customtextfieldwithimage(
                       image: "assets/Profile.png", hintText: "Username"),
@@ -127,7 +127,7 @@ bool isChecked1 = false;
             ),
           ],
         ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
                   Center(
                     child: InkWell(
                       onTap: () {
@@ -141,7 +141,7 @@ bool isChecked1 = false;
                       child: CustomButton(text: "Create Account"),
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 10.h),
                   Center(
                     child: TextButton(
                       onPressed: () {

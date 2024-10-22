@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/RegistrationProcess/Sign_in_Page.dart';
+import 'package:food_app/View/RegistrationProcess/Log_in_page.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 
 class Resetsuccess extends StatelessWidget {

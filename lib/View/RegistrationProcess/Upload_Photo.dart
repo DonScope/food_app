@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/View/RegistrationProcess/Upload_Preview.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';

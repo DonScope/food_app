@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/RegistrationProcess/Sign_up_Page.dart';
+import 'package:food_app/View/App_Screens/Homescreen.dart';
+import 'package:food_app/View/BottomNavBar/BottomNav.dart';
 import 'package:food_app/View/ResetPassword/SelectMethod.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 import 'package:food_app/View/Widgets/CustomLoginButtons.dart';
@@ -44,6 +44,7 @@ class _SignInPageState extends State<SignInPage> {
           Padding(
             padding: EdgeInsets.all(10.w),
             child: SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -102,7 +103,7 @@ class _SignInPageState extends State<SignInPage> {
                       onTap: () => Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignUpPage(),
+                            builder: (context) => Bottomnav(),
                           )),
                       child: CustomButton(text: "Login"))
                 ],

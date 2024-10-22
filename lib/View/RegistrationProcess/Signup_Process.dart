@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/View/RegistrationProcess/Payment_Process.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
@@ -35,6 +34,7 @@ class _SignupProcessState extends State<SignupProcess> {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: SingleChildScrollView(
+                     physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [ 

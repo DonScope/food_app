@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/onboarding/lottie_screen.dart';
+import 'package:food_app/View/App_Screens/Finishorder.dart';
+
+import 'package:food_app/View/BottomNavBar/BottomNav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,12 +23,12 @@ class MyApp extends StatelessWidget {
           title: 'First Method',
           theme: ThemeData(            
             primarySwatch: Colors.green,
-            textTheme: Typography.englishLike2018.apply(fontSizeFactor: 1.sp),
+           textTheme: Typography().black,
           ),
           home: child,
         );
       },
-     child: LottieScreen()
+     child: Bottomnav()
     );
   }
 }

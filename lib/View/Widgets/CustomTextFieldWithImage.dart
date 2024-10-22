@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,6 +16,7 @@ class Customtextfieldwithimage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: TextStyle(color: Colors.black),
   obscureText: obscureText,
   decoration: InputDecoration(
     suffixIcon: ic !=null ? ic : null,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/View/ResetPassword/ViaSMS_screen.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
@@ -32,6 +31,7 @@ class Resetpassword extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: SingleChildScrollView(
+                     physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
