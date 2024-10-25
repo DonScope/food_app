@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/ExploreResturants.dart';
+import 'package:food_app/View/App_Screens/Explore_Menu.dart';
 import 'package:food_app/View/App_Screens/Filterscreen.dart';
 
 class Homescreen extends StatefulWidget {
@@ -11,7 +12,6 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-  
   List<String> Images = [
     "assets/Restaurant1.png",
     "assets/Restaurant2.png",
@@ -194,7 +194,11 @@ class _HomescreenState extends State<Homescreen> {
                               elevation: 0,
                             ),
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ExploreRestaurant(),));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExploreRestaurant(),
+                                  ));
                             },
                             child: Text(
                               "View More",
@@ -207,11 +211,13 @@ class _HomescreenState extends State<Homescreen> {
                     Container(
                       width: double.infinity,
                       height: 184.h,
+                      color: Colors.transparent,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: Images.length,
                         itemBuilder: (context, index) {
                           return Container(
+                              color: Colors.transparent,
                               width: 200.w,
                               child: Padding(
                                 padding: EdgeInsets.only(top: 12),
@@ -240,7 +246,13 @@ class _HomescreenState extends State<Homescreen> {
                               shadowColor: Colors.transparent,
                               elevation: 0,
                             ),
-                            onPressed: () {},
+                            onPressed: () {
+                               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ExploreMenu(),
+                                  ));
+                            },
                             child: Text(
                               "View More",
                               style: TextStyle(

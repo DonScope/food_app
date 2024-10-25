@@ -1,16 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/View/Widgets/CustomButton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/View/App_Screens/Filterscreen.dart';
 
+class ExploreMenu extends StatefulWidget {
+  const ExploreMenu({super.key});
 
-class FilterScreen extends StatefulWidget {
   @override
-  State<FilterScreen> createState() => _FilterScreenState();
+  State<ExploreMenu> createState() => _ExploreMenuState();
 }
 
-class _FilterScreenState extends State<FilterScreen> {
+class _ExploreMenuState extends State<ExploreMenu> {
+  List<Map<String, String>> ExploreMenuList = [
+    {
+      "title": "Herbal Pancake",
+      "subtitle": "Warung Herbal",
+      "price": "\$7",
+      "image": "assets/Herbal.png",
+    },
+    {
+      "title": "Fruit Salad",
+      "subtitle": "Wihie Resto",
+      "price": "\$5",
+      "image": "assets/FruitSalad.png",
+    },
+    {
+      "title": "Green Noddle",
+      "subtitle": "Noddle Home",
+      "price": "\$15",
+      "image": "assets/PhotoMenu.png",
+    },
+  ];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
@@ -22,8 +44,9 @@ class _FilterScreenState extends State<FilterScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: EdgeInsets.all(12.w),
               child: SingleChildScrollView(
+                physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -58,7 +81,7 @@ class _FilterScreenState extends State<FilterScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 350,
+                          width: 270.w,
                           child: TextField(
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
@@ -95,59 +118,77 @@ class _FilterScreenState extends State<FilterScreen> {
                             ),
                           ),
                         ),
-               
+                        Container(
+                            width: 49,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Color.fromRGBO(249, 169, 77, 0.215)),
+                            child: IconButton(
+                                iconSize: 25,
+                                color: Colors.green,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => FilterScreen(),
+                                      ));
+                                },
+                                icon: Icon(
+                                  Icons.sort,
+                                  color: Color.fromRGBO(218, 99, 23, 1.6),
+                                ))),
                       ],
                     ),
                     SizedBox(height: 20),
-                         Text(
-                'Type',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                children: [
-                  FilterChipWidget(label: 'Restaurant'),
-                  FilterChipWidget(label: 'Menu'),
-                ],
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Location',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                children: [
-                  FilterChipWidget(label: '1 Km'),
-                  FilterChipWidget(label: '>10 Km'),
-                  FilterChipWidget(label: '<10 Km'),
-                ],
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Food',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Wrap(
-                spacing: 10,
-                children: [
-                  FilterChipWidget(label: 'Cake'),
-                  FilterChipWidget(label: 'Soup'),
-                  FilterChipWidget(label: 'Main Course'),
-                  FilterChipWidget(label: 'Appetizer'),
-                  FilterChipWidget(label: 'Dessert'),
-                ],
-              ),
-              SizedBox(height: 60),
-
-              InkWell(
-                onTap: () {
-                  
-                },
-                child: Center(child: CustomButton(text: "Search")))
+                    Row(
+                      children: [
+                        Text(
+                          "Popular Menu",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.black),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Container(
+                      height: 550.h,
+                      child: ListView.builder(
+                        itemCount: ExploreMenuList.length,
+                        itemBuilder: (context, index) {
+                          var menuItem = ExploreMenuList[index];
+                          return Container(
+                            height: 120,
+                            child: ListTile(
+                              leading: Image.asset(
+                                menuItem["image"]!, 
+                                width: 40,
+                                height: 64,
+                                fit: BoxFit.contain
+                              ),
+                              title: Text(
+                                menuItem["title"]!,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                ),
+                             
+                              ),
+                              subtitle: Text(menuItem["subtitle"]!),
+                              trailing: Text(
+                                menuItem["price"]!,
+                                style: TextStyle(
+                                  fontSize: 23,
+                                  color: Color.fromRGBO(254, 173, 29, 1),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -158,38 +199,3 @@ class _FilterScreenState extends State<FilterScreen> {
     );
   }
 }
-
-class FilterChipWidget extends StatefulWidget {
-  final String label;
-
-  const FilterChipWidget({required this.label});
-
-  @override
-  _FilterChipWidgetState createState() => _FilterChipWidgetState();
-}
-
-class _FilterChipWidgetState extends State<FilterChipWidget> {
-  bool isSelected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return FilterChip(
-      label: Text(widget.label),
-      selected: isSelected,
-      onSelected: (bool selected) {
-        setState(() {
-          isSelected = selected;
-        });
-      },
-      backgroundColor: Colors.orange[50],
-      selectedColor: Colors.orange,
-      labelStyle: TextStyle(
-        color: isSelected ? Colors.white : Colors.orange,
-        fontWeight: FontWeight.bold,
-      ),
-    );
-  }
-}
-
-
-

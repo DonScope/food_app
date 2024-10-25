@@ -94,69 +94,69 @@ class _ExploreRestaurantState extends State<ExploreRestaurant> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10, left: 15, right: 20),
-          child:   Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          width: 270.w,
-                          child: TextField(
-                            style: TextStyle(color: Colors.black),
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                              prefixIconColor: Color.fromRGBO(218, 99, 23, 1.6),
-                              hintText: 'What do you want to order?',
-                              hintStyle: TextStyle(
-                                color: Color.fromRGBO(218, 99, 23, 1.6),
-                                fontSize: 16.0,
-                              ),
-                              fillColor: Color.fromRGBO(249, 168, 77, 0.215),
-                              filled: true,
-                              contentPadding: EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 16.0,
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                                borderSide: BorderSide(
-                                  color: Colors.white,
-                                  width: 0.5,
-                                ),
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                                borderSide: BorderSide(
-                                  color: Colors.green,
-                                  width: 2.0,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Container(
-                            width: 49,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Color.fromRGBO(249, 169, 77, 0.215)),
-                            child: IconButton(
-                                iconSize: 25,
-                                color: Colors.green,
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => FilterScreen(),
-                                      ));
-                                },
-                                icon: Icon(
-                                  Icons.sort,
-                                  color: Color.fromRGBO(218, 99, 23, 1.6),
-                                ))),
-                      ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                width: 270.w,
+                child: TextField(
+                  style: TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search),
+                    prefixIconColor: Color.fromRGBO(218, 99, 23, 1.6),
+                    hintText: 'What do you want to order?',
+                    hintStyle: TextStyle(
+                      color: Color.fromRGBO(218, 99, 23, 1.6),
+                      fontSize: 16.0,
                     ),
+                    fillColor: Color.fromRGBO(249, 168, 77, 0.215),
+                    filled: true,
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 20.0,
+                      horizontal: 16.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide(
+                        color: Colors.white,
+                        width: 0.5,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                      borderSide: BorderSide(
+                        color: Colors.green,
+                        width: 2.0,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                  width: 49,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Color.fromRGBO(249, 169, 77, 0.215)),
+                  child: IconButton(
+                      iconSize: 25,
+                      color: Colors.green,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FilterScreen(),
+                            ));
+                      },
+                      icon: Icon(
+                        Icons.sort,
+                        color: Color.fromRGBO(218, 99, 23, 1.6),
+                      ))),
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 30, top: 20),
@@ -200,6 +200,7 @@ class _ExploreRestaurantState extends State<ExploreRestaurant> {
                         child: CircleAvatar(
                           radius: 50,
                           backgroundImage: AssetImage(items[index]['image']!),
+                          backgroundColor: Colors.white,
                         ),
                       ),
                       Text(

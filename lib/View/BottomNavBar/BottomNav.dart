@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/View/App_Screens/Homescreen.dart';
+import 'package:food_app/View/App_Screens/Message.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Bottomnav extends StatefulWidget {
@@ -14,6 +15,7 @@ class _BottomnavState extends State<Bottomnav> {
 
   final List<Widget> _screens = [
     Homescreen(),
+    Chat()
   ];
 
   @override
