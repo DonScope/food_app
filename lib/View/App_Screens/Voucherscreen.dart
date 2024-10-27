@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/View/App_Screens/Notificationscreen.dart';
+import 'package:food_app/View/Widgets/CustomButton.dart';
 
 class voucher extends StatefulWidget {
   const voucher({super.key});
@@ -37,27 +39,32 @@ class _voucherState extends State<voucher> {
             child: Container(
               padding: EdgeInsets.all(10.w),
               width: MediaQuery.of(context).size.width,
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Voucher Promo',
-                        style: TextStyle(
-                            fontSize: 30,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 20,),
-
-                      CustomContainer("Frame.png"),
-                      SizedBox (height: 20),
-                            CustomContainer("Frame2.png")
-                    ],
-                  ),
+              child: Padding(
+                padding: EdgeInsets.all(12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Voucher Promo',
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    CustomContainer("Frame.png"),
+                    SizedBox(height: 20),
+                    CustomContainer("Frame2.png"),
+                    SizedBox(
+                      height: 250.h,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => Notificationscreen(),)),
+                      child: Center(child: CustomButton(text: "Check Out"))),
+                  ],
                 ),
               ),
             ),

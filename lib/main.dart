@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:food_app/View/App_Screens/Call_Ringing.dart';
 import 'package:food_app/View/BottomNavBar/BottomNav.dart';
 
 void main() {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-     child: Bottomnav()
+     child: CallRinging()
     );
   }
 }
