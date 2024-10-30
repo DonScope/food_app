@@ -16,18 +16,21 @@ class _ExploreMenuState extends State<ExploreMenu> {
       "subtitle": "Warung Herbal",
       "price": "\$7",
       "image": "assets/Herbal.png",
+      "food": "herbal",
     },
     {
       "title": "Fruit Salad",
       "subtitle": "Wihie Resto",
       "price": "\$5",
       "image": "assets/FruitSalad.png",
+      "food": "soup",
     },
     {
       "title": "Green Noddle",
       "subtitle": "Noddle Home",
       "price": "\$15",
       "image": "assets/PhotoMenu.png",
+      "food": "soup",
     },
   ];
   @override
@@ -162,19 +165,14 @@ class _ExploreMenuState extends State<ExploreMenu> {
                           return Container(
                             height: 120,
                             child: ListTile(
-                              leading: Image.asset(
-                                menuItem["image"]!, 
-                                width: 40,
-                                height: 64,
-                                fit: BoxFit.contain
-                              ),
+                              leading: Image.asset(menuItem["image"]!,
+                                  width: 40, height: 64, fit: BoxFit.contain),
                               title: Text(
                                 menuItem["title"]!,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20,
                                 ),
-                             
                               ),
                               subtitle: Text(menuItem["subtitle"]!),
                               trailing: Text(

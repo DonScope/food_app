@@ -19,6 +19,9 @@ class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
@@ -207,10 +210,10 @@ class _HomescreenState extends State<Homescreen> {
                             )),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    // SizedBox(height: 15),
                     Container(
                       width: double.infinity,
-                      height: 184.h,
+                      height: 200.h,
                       color: Colors.transparent,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -218,7 +221,8 @@ class _HomescreenState extends State<Homescreen> {
                         itemBuilder: (context, index) {
                           return Container(
                               color: Colors.transparent,
-                              width: 200.w,
+                              height: 200,
+                              width: 190.w,
                               child: Padding(
                                 padding: EdgeInsets.only(top: 12),
                                 child: Image.asset(
@@ -229,7 +233,7 @@ class _HomescreenState extends State<Homescreen> {
                         },
                       ),
                     ),
-                    SizedBox(height: 15),
+                    // SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -247,7 +251,7 @@ class _HomescreenState extends State<Homescreen> {
                               elevation: 0,
                             ),
                             onPressed: () {
-                               Navigator.push(
+                              Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ExploreMenu(),
