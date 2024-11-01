@@ -2,6 +2,7 @@ import 'package:chat_bubbles/bubbles/bubble_special_three.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/Model/Chat_Model.dart';
+import 'package:food_app/View/App_Screens/Call_Ringing.dart';
 import 'package:food_app/View/App_Screens/Finishorder.dart';
 
 class Details extends StatefulWidget {
@@ -14,7 +15,7 @@ class Details extends StatefulWidget {
 class _DetailsState extends State<Details> {
   TextEditingController Textcontroller = TextEditingController();
 
-  List<ChatModel> Chat = []; 
+  List<ChatModel> Chat = [];
   bool Sender1 = false;
   @override
   Widget build(BuildContext context) {
@@ -124,7 +125,7 @@ class _DetailsState extends State<Details> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => Finishorder(),
+                                    builder: (context) => CallRinging(),
                                   ),
                                 );
                               },
@@ -141,11 +142,16 @@ class _DetailsState extends State<Details> {
                         itemCount: Chat.length,
                         itemBuilder: (context, index) => BubbleSpecialThree(
                           isSender: Chat[index].sender == 'chat1',
-                          text: Chat[index].text, 
-                          color: Chat[index].sender == 'chat1' ? Colors.blue : Color.fromRGBO(246, 246, 246, 1),
+                          text: Chat[index].text,
+                          color: Chat[index].sender == 'chat1'
+                              ? Colors.blue
+                              : Color.fromRGBO(246, 246, 246, 1),
                           tail: true,
-                          textStyle:
-                              TextStyle(color: Chat[index].sender == 'chat1' ? Colors.white : Colors.black, fontSize: 16),
+                          textStyle: TextStyle(
+                              color: Chat[index].sender == 'chat1'
+                                  ? Colors.white
+                                  : Colors.black,
+                              fontSize: 16),
                         ),
                       ),
                     ),
@@ -185,10 +191,11 @@ class _DetailsState extends State<Details> {
                                 color: Colors.green,
                               ),
                               onPressed: () {
-                                Chat.add(ChatModel(Textcontroller.text, Sender1?'chat1' : 'chat2'));
+                                Chat.add(ChatModel(Textcontroller.text,
+                                    Sender1 ? 'chat1' : 'chat2'));
                                 Textcontroller.clear();
                                 Sender1 = !Sender1;
-                                setState(() {}); 
+                                setState(() {});
                               },
                             ),
                           ],
@@ -205,5 +212,3 @@ class _DetailsState extends State<Details> {
     );
   }
 }
-
-

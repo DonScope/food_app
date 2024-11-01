@@ -31,22 +31,21 @@ class _CallRingingState extends State<CallRinging> {
   }
 
   void startCallTimer() {
-   Future.delayed(Duration(seconds: 5), () {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-        seconds++;
-        if (seconds == 60) {
-          seconds = 0;
-          minutes++;
-        }
-        if (minutes == 60) {
-          minutes = 0;
-          hours++;
-        }
+    Future.delayed(Duration(seconds: 5), () {
+      timer = Timer.periodic(Duration(seconds: 1), (timer) {
+        setState(() {
+          seconds++;
+          if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+          }
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        });
       });
     });
-    });
-
   }
 
   @override
@@ -91,21 +90,23 @@ class _CallRingingState extends State<CallRinging> {
                       ),
                     ),
                     SizedBox(height: 15),
-                    isRinging == false ? Text(
-                      "Ringing...",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ) : Text(
-                      "$formattedTime",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    isRinging == false
+                        ? Text(
+                            "Ringing...",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : Text(
+                            "$formattedTime",
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                     SizedBox(height: 170),
                     Row(
                       children: [
@@ -126,8 +127,10 @@ class _CallRingingState extends State<CallRinging> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(40),
                                       image: DecorationImage(
-                                          image:
-                                          onMute == false ?    AssetImage("assets/volumeup.png"):  AssetImage("assets/muted.png"),
+                                          image: onMute == false
+                                              ? AssetImage(
+                                                  "assets/volumeup.png")
+                                              : AssetImage("assets/muted.png"),
                                           fit: BoxFit.contain)),
                                 ),
                               ),
@@ -135,7 +138,11 @@ class _CallRingingState extends State<CallRinging> {
                         SizedBox(width: 30),
                         InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Finishorder(),));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Finishorder(),
+                                  ));
                             },
                             child: Container(
                               width: 60,
@@ -166,5 +173,11 @@ class _CallRingingState extends State<CallRinging> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    startCallTimer();
+    super.dispose();
   }
 }

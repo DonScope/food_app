@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/Call_Ringing.dart';
+import 'package:food_app/View/App_Screens/OrderDetails.dart';
 import 'package:food_app/View/BottomNavBar/BottomNav.dart';
 
 void main() {
@@ -13,22 +14,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (_ , child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'First Method',
-          theme: ThemeData(            
-            primarySwatch: Colors.green,
-           textTheme: Typography().black,
-          ),
-          home: child,
-        );
-      },
-     child: CallRinging()
-    );
+        designSize: const Size(375, 812),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'First Method',
+            theme: ThemeData(
+              primarySwatch: Colors.green,
+              textTheme: Typography().black,
+            ),
+            home: child,
+          );
+        },
+        child: Orderdetails());
   }
 }
-
