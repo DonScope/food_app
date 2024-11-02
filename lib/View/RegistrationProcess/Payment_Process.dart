@@ -34,25 +34,25 @@ class _PaymentProcessState extends State<PaymentProcess> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: SingleChildScrollView(
-                     physics: NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Payment Method',
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     Text(
                       'This data will be displayed in your account \nprofile for security',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      style: TextStyle(fontSize: 14.sp, color: Colors.black),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     InkWell(
                       onTap: () {
                         selectedIndex = selectedIndex == 1 ? 0 : 1;
@@ -60,10 +60,10 @@ class _PaymentProcessState extends State<PaymentProcess> {
                       },
                       child: Container(
                           width: double.infinity,
-                          height: 73,
+                          height: 73.h,
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(255, 253, 253, 1),
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.r),
                               border: Border.all(
                                   color: selectedIndex == 1
                                       ? Colors.green
@@ -73,7 +73,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             child: Image.asset("assets/paypal.png"),
                           )),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     InkWell(
                       onTap: () {
                         selectedIndex = selectedIndex == 2 ? 0 : 2;
@@ -81,10 +81,10 @@ class _PaymentProcessState extends State<PaymentProcess> {
                       },
                       child: Container(
                           width: double.infinity,
-                          height: 73,
+                          height: 73.h,
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(255, 253, 253, 1),
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.r),
                               border: Border.all(
                                   color: selectedIndex == 2
                                       ? Colors.green
@@ -94,7 +94,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             child: Image.asset("assets/visa.png"),
                           )),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     InkWell(
                       onTap: () {
                         selectedIndex = selectedIndex == 3 ? 0 : 3;
@@ -102,10 +102,10 @@ class _PaymentProcessState extends State<PaymentProcess> {
                       },
                       child: Container(
                           width: double.infinity,
-                          height: 73,
+                          height: 73.h,
                           decoration: BoxDecoration(
                               color: Color.fromRGBO(255, 253, 253, 1),
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(20.r),
                               border: Border.all(
                                   color: selectedIndex == 3
                                       ? Colors.green
@@ -115,7 +115,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                             child: Image.asset("assets/Payoneer.png"),
                           )),
                     ),
-                    SizedBox(height: 200),
+                    SizedBox(height: 200.h),
                     InkWell(
                         enableFeedback: true,
                         onTap: () {
@@ -138,7 +138,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                           width: 157.w,
                           height: 57.h,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.w),
+                            borderRadius: BorderRadius.circular(10.r),
                             gradient: LinearGradient(
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
@@ -160,7 +160,7 @@ class _PaymentProcessState extends State<PaymentProcess> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16.sp),
                           )),
-                        )))
+                        ))),
                   ],
                 ),
               ),

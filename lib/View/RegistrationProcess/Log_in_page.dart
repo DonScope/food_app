@@ -43,7 +43,7 @@ class _SignInPageState extends State<SignInPage> {
           Padding(
             padding: EdgeInsets.all(10.w),
             child: SingleChildScrollView(
-              physics: NeverScrollableScrollPhysics(),
+              physics: AlwaysScrollableScrollPhysics(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -74,37 +74,50 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   SizedBox(height: 20.h),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center, // Center the row
                     children: [
                       Expanded(
-                          child: CustomLoginButtons(
-                              Leading: "assets/facebook.png", text: "Facebook")),
-                      SizedBox(width: 15),
+                        child: CustomLoginButtons(
+                          Leading: "assets/facebook.png", 
+                          text: "Facebook",
+                        ),
+                      ),
+                      SizedBox(width: 15.w), // Make the width responsive
                       Expanded(
-                          child: CustomLoginButtons(
-                              Leading: "assets/google.png", text: "Google")),
+                        child: CustomLoginButtons(
+                          Leading: "assets/google.png", 
+                          text: "Google",
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20.h),
                   TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => Selectmethod(),));
-                      },
-                      child: Text(
-                        "Forgot your password?",
-                        style: TextStyle(
-                          color:  Color.fromRGBO(83, 232, 139, 1),
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Selectmethod()),
+                      );
+                    },
+                    child: Text(
+                      "Forgot your password?",
+                      style: TextStyle(
+                        color: Color.fromRGBO(83, 232, 139, 1),
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                   SizedBox(height: 10.h),
                   InkWell(
-                      onTap: () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Bottomnav(),
-                          )),
-                      child: CustomButton(text: "Login"))
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Bottomnav(),
+                      ),
+                    ),
+                    child: CustomButton(text: "Login"),
+                  ),
                 ],
               ),
             ),

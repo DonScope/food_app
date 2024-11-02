@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/ResetPassword/ResetSuccess.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 
@@ -13,10 +14,11 @@ class ViasmsScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Image.asset("assets/Icon Back.png")),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Image.asset("assets/Icon Back.png"),
+        ),
       ),
       body: Stack(
         children: [
@@ -28,38 +30,40 @@ class ViasmsScreen extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Enter 4-digit \nVerification code',
                     style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 30.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                   Text(
-                    'Code send to +6282045**** . This code will \nexpired in 01:30',
-                    style: TextStyle(fontSize: 14, color: Colors.black),
+                    'Code sent to +6282045****. This code will \nexpire in 01:30',
+                    style: TextStyle(fontSize: 14.sp, color: Colors.black),
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 25.h),
                   Container(
-                    width: 350,
+                    width: 350.w,
                     child: TextField(
                       maxLength: 4,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
+                        fontSize: 32.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                       decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder( 
-                      borderSide: BorderSide(color: Colors.green)
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.green),
                         ),
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
+                          borderRadius: BorderRadius.circular(8.r),
                         ),
                         counterText: "",
                         filled: true,
@@ -67,14 +71,18 @@ class ViasmsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 300),
+                  SizedBox(height: 300.h),
                   InkWell(
-                    onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => Resetsuccess(),)),
-                    child: Center(child: CustomButton(text: "Next")))
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Resetsuccess()),
+                    ),
+                    child: Center(child: CustomButton(text: "Next")),
+                  )
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

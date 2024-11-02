@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FilterScreen extends StatefulWidget {
   @override
@@ -55,31 +56,32 @@ class _FilterScreenState extends State<FilterScreen> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: EdgeInsets.all(15.w),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Find Your \nFavorite Food',
                           style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 30.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Container(
-                          width: 45,
-                          height: 45,
+                          width: 45.w,
+                          height: 45.h,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(12.r),
                             color: Color.fromRGBO(250, 253, 255, 1),
                           ),
                           child: IconButton(
-                            iconSize: 30,
+                            iconSize: 30.sp,
                             color: Color.fromRGBO(83, 232, 139, 1),
                             onPressed: () {},
                             icon: Icon(Icons.notifications_none_outlined),
@@ -87,43 +89,43 @@ class _FilterScreenState extends State<FilterScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 25.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                          width: 350,
+                          width: 340.w,
                           child: TextField(
                             style: TextStyle(color: Colors.black),
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
+                              prefixIcon: Icon(Icons.search, size: 24.sp),
                               prefixIconColor: Color.fromRGBO(218, 99, 23, 1.6),
                               hintText: 'What do you want to order?',
                               hintStyle: TextStyle(
                                 color: Color.fromRGBO(218, 99, 23, 1.6),
-                                fontSize: 16.0,
+                                fontSize: 16.sp,
                               ),
                               fillColor: Color.fromRGBO(249, 168, 77, 0.215),
                               filled: true,
                               contentPadding: EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 16.0,
+                                vertical: 20.h,
+                                horizontal: 16.w,
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.r),
                                 borderSide: BorderSide(
                                   color: Colors.white,
-                                  width: 0.5,
+                                  width: 0.5.w,
                                 ),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.r),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.r),
                                 borderSide: BorderSide(
                                   color: Colors.green,
-                                  width: 2.0,
+                                  width: 2.w,
                                 ),
                               ),
                             ),
@@ -131,102 +133,127 @@ class _FilterScreenState extends State<FilterScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Text('Type',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20.h),
+                    Text(
+                      'Type',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
                     Wrap(
-                      spacing: 10,
+                      spacing: 10.w,
                       children: [
                         FilterChipWidget(
-                            label: 'Restaurant',
-                            isSelected: selectedTypes.contains('Restaurant'),
-                            onSelected: (selected) =>
-                                toggleSelection('Type', 'Restaurant')),
+                          label: 'Restaurant',
+                          isSelected: selectedTypes.contains('Restaurant'),
+                          onSelected: (selected) =>
+                              toggleSelection('Type', 'Restaurant'),
+                        ),
                         FilterChipWidget(
-                            label: 'Menu',
-                            isSelected: selectedTypes.contains('Menu'),
-                            onSelected: (selected) =>
-                                toggleSelection('Type', 'Menu')),
+                          label: 'Menu',
+                          isSelected: selectedTypes.contains('Menu'),
+                          onSelected: (selected) =>
+                              toggleSelection('Type', 'Menu'),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Text('Location',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20.h),
+                    Text(
+                      'Location',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
                     Wrap(
-                      spacing: 10,
+                      spacing: 10.w,
                       children: [
                         FilterChipWidget(
-                            label: '1 Km',
-                            isSelected: selectedLocations.contains('1 Km'),
-                            onSelected: (selected) =>
-                                toggleSelection('Location', '1 Km')),
+                          label: '1 Km',
+                          isSelected: selectedLocations.contains('1 Km'),
+                          onSelected: (selected) =>
+                              toggleSelection('Location', '1 Km'),
+                        ),
                         FilterChipWidget(
-                            label: '>10 Km',
-                            isSelected: selectedLocations.contains('>10 Km'),
-                            onSelected: (selected) =>
-                                toggleSelection('Location', '>10 Km')),
+                          label: '>10 Km',
+                          isSelected: selectedLocations.contains('>10 Km'),
+                          onSelected: (selected) =>
+                              toggleSelection('Location', '>10 Km'),
+                        ),
                         FilterChipWidget(
-                            label: '<10 Km',
-                            isSelected: selectedLocations.contains('<10 Km'),
-                            onSelected: (selected) =>
-                                toggleSelection('Location', '<10 Km')),
+                          label: '<10 Km',
+                          isSelected: selectedLocations.contains('<10 Km'),
+                          onSelected: (selected) =>
+                              toggleSelection('Location', '<10 Km'),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20),
-                    Text('Food',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                    SizedBox(height: 10),
+                    SizedBox(height: 20.h),
+                    Text(
+                      'Food',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10.h),
                     Wrap(
-                      spacing: 10,
+                      spacing: 10.w,
                       children: [
                         FilterChipWidget(
-                            label: 'Cake',
-                            isSelected: selectedFoods.contains('Cake'),
-                            onSelected: (selected) =>
-                                toggleSelection('Food', 'Cake')),
+                          label: 'Cake',
+                          isSelected: selectedFoods.contains('Cake'),
+                          onSelected: (selected) =>
+                              toggleSelection('Food', 'Cake'),
+                        ),
                         FilterChipWidget(
-                            label: 'Soup',
-                            isSelected: selectedFoods.contains('Soup'),
-                            onSelected: (selected) =>
-                                toggleSelection('Food', 'Soup')),
+                          label: 'Soup',
+                          isSelected: selectedFoods.contains('Soup'),
+                          onSelected: (selected) =>
+                              toggleSelection('Food', 'Soup'),
+                        ),
                         FilterChipWidget(
-                            label: 'Main Course',
-                            isSelected: selectedFoods.contains('Main Course'),
-                            onSelected: (selected) =>
-                                toggleSelection('Food', 'Main Course')),
+                          label: 'Main Course',
+                          isSelected: selectedFoods.contains('Main Course'),
+                          onSelected: (selected) =>
+                              toggleSelection('Food', 'Main Course'),
+                        ),
                         FilterChipWidget(
-                            label: 'Appetizer',
-                            isSelected: selectedFoods.contains('Appetizer'),
-                            onSelected: (selected) =>
-                                toggleSelection('Food', 'Appetizer')),
+                          label: 'Appetizer',
+                          isSelected: selectedFoods.contains('Appetizer'),
+                          onSelected: (selected) =>
+                              toggleSelection('Food', 'Appetizer'),
+                        ),
                         FilterChipWidget(
-                            label: 'Dessert',
-                            isSelected: selectedFoods.contains('Dessert'),
-                            onSelected: (selected) =>
-                                toggleSelection('Food', 'Dessert')),
+                          label: 'Dessert',
+                          isSelected: selectedFoods.contains('Dessert'),
+                          onSelected: (selected) =>
+                              toggleSelection('Food', 'Dessert'),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 60),
+                    SizedBox(height: 60.h),
                     InkWell(
                       onTap: () {
-                        // Handle the search action with selected filters
                         print('Selected Types: $selectedTypes');
                         print('Selected Locations: $selectedLocations');
                         print('Selected Foods: $selectedFoods');
                       },
-                      child: Center(child: CustomButton(text: "Search")),
+                      child: Center(
+                        child: CustomButton(text: "Search"),
+                      ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Center(
                       child: TextButton(
                         onPressed: clearFilters,
-                        child: Text("Clear Filters",
-                            style: TextStyle(color: Colors.red)),
+                        child: Text(
+                          "Clear Filters",
+                          style: TextStyle(color: Colors.red, fontSize: 14.sp),
+                        ),
                       ),
                     ),
                   ],
@@ -254,7 +281,10 @@ class FilterChipWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FilterChip(
-      label: Text(label),
+      label: Text(
+        label,
+        style: TextStyle(fontSize: 14.sp),
+      ),
       selected: isSelected,
       onSelected: onSelected,
       backgroundColor: Colors.orange[50],

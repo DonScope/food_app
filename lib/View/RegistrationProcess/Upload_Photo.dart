@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/RegistrationProcess/Upload_Preview.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 
@@ -13,10 +14,11 @@ class UploadPhoto extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Image.asset("assets/Icon Back.png")),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Image.asset("assets/Icon Back.png"),
+        ),
       ),
       body: Stack(
         children: [
@@ -28,61 +30,66 @@ class UploadPhoto extends StatelessWidget {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Upload Your Photo \nProfile',
                     style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold),
+                      fontSize: 30.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 40.h),
                   Text(
                     'This data will be displayed in your account \nprofile for security',
-                    style: TextStyle(fontSize: 14, color: Colors.black),
+                    style: TextStyle(fontSize: 14.sp, color: Colors.black),
                   ),
-                  SizedBox(height: 25),
+                  SizedBox(height: 25.h),
                   InkWell(
                     onTap: () {},
                     child: Container(
-                        width: double.infinity,
-                        height: 129,
-                        decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 253, 253, 1),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Center(
-                          child: Image.asset("assets/Gallery.png"),
-                        )),
+                      width: double.infinity,
+                      height: 129.h,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 253, 253, 1),
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Center(
+                        child: Image.asset("assets/Gallery.png"),
+                      ),
+                    ),
                   ),
-                  SizedBox(height: 25),
-                    InkWell(
-                    onTap: () {
-                      
-                    },
+                  SizedBox(height: 25.h),
+                  InkWell(
+                    onTap: () {},
                     child: Container(
-                          width: double.infinity,
-                          height: 129,
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(255, 253, 253, 1),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                          child: Center(
-                            child: Image.asset("assets/Camera.png"),
-                          )),
+                      width: double.infinity,
+                      height: 129.h,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 253, 253, 1),
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Center(
+                        child: Image.asset("assets/Camera.png"),
+                      ),
+                    ),
                   ),
-                   SizedBox(height: 130),
+                  SizedBox(height: 130.h),
                   InkWell(
                     enableFeedback: true,
-                    onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => UploadPreview(),)),
-                    child: Center(child: CustomButton(text: "Next")))
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => UploadPreview()),
+                    ),
+                    child: Center(child: CustomButton(text: "Next")),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

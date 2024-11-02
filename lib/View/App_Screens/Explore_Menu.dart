@@ -33,6 +33,7 @@ class _ExploreMenuState extends State<ExploreMenu> {
       "food": "soup",
     },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,67 +54,74 @@ class _ExploreMenuState extends State<ExploreMenu> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Find Your \nFavorite Food',
                           style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 30.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Color.fromRGBO(250, 253, 255, 1)),
-                            child: IconButton(
-                                iconSize: 30,
-                                color: Color.fromRGBO(83, 232, 139, 1),
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.notifications_none_outlined,
-                                ))),
+                          width: 45.w,
+                          height: 45.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.r),
+                            color: const Color.fromRGBO(250, 253, 255, 1),
+                          ),
+                          child: IconButton(
+                            iconSize: 30.sp,
+                            color: const Color.fromRGBO(83, 232, 139, 1),
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.notifications_none_outlined,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 25.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           width: 270.w,
                           child: TextField(
-                            style: TextStyle(color: Colors.black),
+                            style: TextStyle(color: Colors.black, fontSize: 16.sp),
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                              prefixIconColor: Color.fromRGBO(218, 99, 23, 1.6),
+                              prefixIcon: Icon(
+                                Icons.search,
+                                size: 24.sp,
+                              ),
+                              prefixIconColor: const Color.fromRGBO(218, 99, 23, 1.6),
                               hintText: 'What do you want to order?',
                               hintStyle: TextStyle(
-                                color: Color.fromRGBO(218, 99, 23, 1.6),
-                                fontSize: 16.0,
+                                color: const Color.fromRGBO(218, 99, 23, 1.6),
+                                fontSize: 16.sp,
                               ),
-                              fillColor: Color.fromRGBO(249, 168, 77, 0.215),
+                              fillColor: const Color.fromRGBO(249, 168, 77, 0.215),
                               filled: true,
                               contentPadding: EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 16.0,
+                                vertical: 20.h,
+                                horizontal: 16.w,
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                                borderSide: BorderSide(
+                                borderRadius: BorderRadius.circular(20.r),
+                                borderSide: const BorderSide(
                                   color: Colors.white,
                                   width: 0.5,
                                 ),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.r),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                                borderSide: BorderSide(
+                                borderRadius: BorderRadius.circular(20.r),
+                                borderSide: const BorderSide(
                                   color: Colors.green,
                                   width: 2.0,
                                 ),
@@ -122,40 +130,46 @@ class _ExploreMenuState extends State<ExploreMenu> {
                           ),
                         ),
                         Container(
-                            width: 49,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Color.fromRGBO(249, 169, 77, 0.215)),
-                            child: IconButton(
-                                iconSize: 25,
-                                color: Colors.green,
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => FilterScreen(),
-                                      ));
-                                },
-                                icon: Icon(
-                                  Icons.sort,
-                                  color: Color.fromRGBO(218, 99, 23, 1.6),
-                                ))),
+                          width: 49.w,
+                          height: 50.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.r),
+                            color: const Color.fromRGBO(249, 169, 77, 0.215),
+                          ),
+                          child: IconButton(
+                            iconSize: 25.sp,
+                            color: Colors.green,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FilterScreen(),
+                                ),
+                              );
+                            },
+                            icon: Icon(
+                              Icons.sort,
+                              size: 25.sp,
+                              color: const Color.fromRGBO(218, 99, 23, 1.6),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Row(
                       children: [
                         Text(
                           "Popular Menu",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Colors.black),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp,
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Container(
                       height: 550.h,
                       child: ListView.builder(
@@ -163,23 +177,30 @@ class _ExploreMenuState extends State<ExploreMenu> {
                         itemBuilder: (context, index) {
                           var menuItem = ExploreMenuList[index];
                           return Container(
-                            height: 120,
+                            height: 120.h,
                             child: ListTile(
-                              leading: Image.asset(menuItem["image"]!,
-                                  width: 40, height: 64, fit: BoxFit.contain),
+                              leading: Image.asset(
+                                menuItem["image"]!,
+                                width: 40.w,
+                                height: 64.h,
+                                fit: BoxFit.contain,
+                              ),
                               title: Text(
                                 menuItem["title"]!,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                 ),
                               ),
-                              subtitle: Text(menuItem["subtitle"]!),
+                              subtitle: Text(
+                                menuItem["subtitle"]!,
+                                style: TextStyle(fontSize: 14.sp),
+                              ),
                               trailing: Text(
                                 menuItem["price"]!,
                                 style: TextStyle(
-                                  fontSize: 23,
-                                  color: Color.fromRGBO(254, 173, 29, 1),
+                                  fontSize: 23.sp,
+                                  color: const Color.fromRGBO(254, 173, 29, 1),
                                 ),
                               ),
                             ),
@@ -191,7 +212,7 @@ class _ExploreMenuState extends State<ExploreMenu> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

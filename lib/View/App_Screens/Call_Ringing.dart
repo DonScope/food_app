@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/Finishorder.dart';
-import 'package:food_app/View/App_Screens/Ratefood.dart';
 
 class CallRinging extends StatefulWidget {
   const CallRinging({super.key});
@@ -22,34 +20,42 @@ class _CallRingingState extends State<CallRinging> {
 
   @override
   void initState() {
-    startCallTimer();
-    Future.delayed(Duration(seconds: 5), () {
-      isRinging = true;
-      setState(() {});
-    });
     super.initState();
+    Future.delayed(Duration(seconds: 5), () {
+      setState(() {
+        isRinging = true;
+        startCallTimer();
+      });
+    });
   }
 
   void startCallTimer() {
-    Future.delayed(Duration(seconds: 5), () {
-      timer = Timer.periodic(Duration(seconds: 1), (timer) {
-        setState(() {
-          seconds++;
-          if (seconds == 60) {
-            seconds = 0;
-            minutes++;
-          }
-          if (minutes == 60) {
-            minutes = 0;
-            hours++;
-          }
-        });
+    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        seconds++;
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+        }
+        if (minutes == 60) {
+          minutes = 0;
+          hours++;
+        }
       });
     });
   }
 
   @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    // Initialize ScreenUtil for responsive sizing
+    ScreenUtil.init(context, designSize: Size(375, 812));
+
     String formattedTime = hours.toString().padLeft(2, '0') +
         ':' +
         minutes.toString().padLeft(2, '0') +
@@ -80,7 +86,7 @@ class _CallRingingState extends State<CallRinging> {
                       width: 188.w,
                       fit: BoxFit.contain,
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 30.h),
                     Text(
                       "Courtney Henry",
                       style: TextStyle(
@@ -89,7 +95,7 @@ class _CallRingingState extends State<CallRinging> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 15.h),
                     isRinging == false
                         ? Text(
                             "Ringing...",
@@ -107,62 +113,75 @@ class _CallRingingState extends State<CallRinging> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                    SizedBox(height: 170),
+                    SizedBox(height: 170.h),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
-                            onTap: () {
+                          onTap: () {
+                            setState(() {
                               onMute = !onMute;
-                            },
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(40),
-                                  color: Colors.greenAccent),
-                              child: Center(
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(40),
-                                      image: DecorationImage(
-                                          image: onMute == false
-                                              ? AssetImage(
-                                                  "assets/volumeup.png")
-                                              : AssetImage("assets/muted.png"),
-                                          fit: BoxFit.contain)),
+                            });
+                          },
+                          child: Container(
+                            width: 60.w,
+                            height: 60.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40.r),
+                              color: Colors.greenAccent,
+                            ),
+                            child: Center(
+                              child: Container(
+                                width: 40.w,
+                                height: 40.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40.r),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      onMute == false
+                                          ? "assets/volumeup.png"
+                                          : "assets/muted.png",
+                                    ),
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
-                            )),
-                        SizedBox(width: 30),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 30.w),
                         InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => Finishorder(),
-                                  ));
-                            },
-                            child: Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(40),
-                                  color: Colors.redAccent),
-                              child: Center(
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(40),
-                                      image: DecorationImage(
-                                          image:
-                                              AssetImage("assets/Xbutton.png"),
-                                          fit: BoxFit.contain)),
+                          onTap: () {
+                            timer?.cancel(); 
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Finishorder(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            width: 60.w,
+                            height: 60.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(40.r),
+                              color: Colors.redAccent,
+                            ),
+                            child: Center(
+                              child: Container(
+                                width: 40.w,
+                                height: 40.h,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(40.r),
+                                  image: DecorationImage(
+                                    image: AssetImage("assets/Xbutton.png"),
+                                    fit: BoxFit.contain,
+                                  ),
                                 ),
                               ),
-                            )),
+                            ),
+                          ),
+                        ),
                       ],
                     )
                   ],
@@ -173,11 +192,5 @@ class _CallRingingState extends State<CallRinging> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    startCallTimer();
-    super.dispose();
   }
 }

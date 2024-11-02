@@ -16,55 +16,57 @@ class _HomescreenState extends State<Homescreen> {
     "assets/Restaurant1.png",
     "assets/Restaurant2.png",
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-      ),
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          Image.asset(
-            'assets/Pattern2.png',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
+          Positioned.fill(
+            child: Image.asset(
+              'assets/Pattern2.png',
+              fit: BoxFit.cover,
+            ),
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(15),
+              padding: EdgeInsets.all(15.w),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Find Your \nFavorite Food',
                           style: TextStyle(
-                              fontSize: 30,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 30.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         Container(
-                            width: 45,
-                            height: 45,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Color.fromRGBO(250, 253, 255, 1)),
-                            child: IconButton(
-                                iconSize: 30,
-                                color: Color.fromRGBO(83, 232, 139, 1),
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.notifications_none_outlined,
-                                ))),
+                          width: 45.w,
+                          height: 45.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.r),
+                            color: Color.fromRGBO(250, 253, 255, 1),
+                          ),
+                          child: IconButton(
+                            iconSize: 30.sp,
+                            color: Color.fromRGBO(83, 232, 139, 1),
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.notifications_none_outlined,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 25.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -78,26 +80,26 @@ class _HomescreenState extends State<Homescreen> {
                               hintText: 'What do you want to order?',
                               hintStyle: TextStyle(
                                 color: Color.fromRGBO(218, 99, 23, 1.6),
-                                fontSize: 16.0,
+                                fontSize: 16.sp,
                               ),
                               fillColor: Color.fromRGBO(249, 168, 77, 0.215),
                               filled: true,
                               contentPadding: EdgeInsets.symmetric(
-                                vertical: 20.0,
-                                horizontal: 16.0,
+                                vertical: 20.0.h,
+                                horizontal: 16.0.w,
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.0.r),
                                 borderSide: BorderSide(
                                   color: Colors.white,
                                   width: 0.5,
                                 ),
                               ),
                               border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.0.r),
                               ),
                               focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(20.0),
+                                borderRadius: BorderRadius.circular(20.0.r),
                                 borderSide: BorderSide(
                                   color: Colors.green,
                                   width: 2.0,
@@ -107,45 +109,49 @@ class _HomescreenState extends State<Homescreen> {
                           ),
                         ),
                         Container(
-                            width: 49,
-                            height: 50,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Color.fromRGBO(249, 169, 77, 0.215)),
-                            child: IconButton(
-                                iconSize: 25,
-                                color: Colors.green,
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => FilterScreen(),
-                                      ));
-                                },
-                                icon: Icon(
-                                  Icons.sort,
-                                  color: Color.fromRGBO(218, 99, 23, 1.6),
-                                ))),
+                          width: 49.w,
+                          height: 50.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12.r),
+                            color: Color.fromRGBO(249, 169, 77, 0.215),
+                          ),
+                          child: IconButton(
+                            iconSize: 25.sp,
+                            color: Colors.green,
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => FilterScreen(),
+                                ),
+                              );
+                            },
+                            icon: Icon(
+                              Icons.sort,
+                              color: Color.fromRGBO(218, 99, 23, 1.6),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Container(
                       width: 340.w,
                       height: 150.h,
                       decoration: BoxDecoration(
                         color: Colors.greenAccent[400],
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12.r),
                       ),
                       child: Stack(
                         children: [
                           Image.asset("assets/Ad.png", fit: BoxFit.cover),
                           Positioned(
-                            right: 4,
-                            top: 8.0,
+                            right: 4.w,
+                            top: 8.0.h,
                             child: Text(
                               "Special Deal For \nOctober",
                               style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 25.sp,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -153,8 +159,8 @@ class _HomescreenState extends State<Homescreen> {
                             ),
                           ),
                           Positioned(
-                            right: 60,
-                            bottom: 10,
+                            right: 60.w,
+                            bottom: 10.h,
                             child: InkWell(
                               onTap: () {},
                               child: Container(
@@ -162,15 +168,16 @@ class _HomescreenState extends State<Homescreen> {
                                 height: 50.h,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(15.r),
                                 ),
                                 child: Center(
                                   child: Text(
                                     "Buy Now",
                                     style: TextStyle(
-                                        fontSize: 25,
-                                        color: Colors.greenAccent,
-                                        fontWeight: FontWeight.bold),
+                                      fontSize: 25.sp,
+                                      color: Colors.greenAccent,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -179,38 +186,41 @@ class _HomescreenState extends State<Homescreen> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Nearest Restaurant',
                           style: TextStyle(
-                              fontSize: 23,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 23.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                              elevation: 0,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            elevation: 0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ExploreRestaurant(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "View More",
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 124, 50, 1),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ExploreRestaurant(),
-                                  ));
-                            },
-                            child: Text(
-                              "View More",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 124, 50, 1)),
-                            )),
+                          ),
+                        ),
                       ],
                     ),
-                    // SizedBox(height: 15),
                     Container(
                       width: double.infinity,
                       height: 200.h,
@@ -220,73 +230,80 @@ class _HomescreenState extends State<Homescreen> {
                         itemCount: Images.length,
                         itemBuilder: (context, index) {
                           return Container(
-                              color: Colors.transparent,
-                              height: 200,
-                              width: 190.w,
-                              child: Padding(
-                                padding: EdgeInsets.only(top: 12),
-                                child: Image.asset(
-                                  Images[index],
-                                  fit: BoxFit.cover,
-                                ),
-                              ));
+                            color: Colors.transparent,
+                            height: 200.h,
+                            width: 190.w,
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 12.h),
+                              child: Image.asset(
+                                Images[index],
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          );
                         },
                       ),
                     ),
-                    // SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'Popular Menu',
                           style: TextStyle(
-                              fontSize: 23,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold),
+                            fontSize: 23.sp,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.transparent,
-                              shadowColor: Colors.transparent,
-                              elevation: 0,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.transparent,
+                            shadowColor: Colors.transparent,
+                            elevation: 0,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ExploreMenu(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "View More",
+                            style: TextStyle(
+                              color: Color.fromRGBO(255, 124, 50, 1),
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => ExploreMenu(),
-                                  ));
-                            },
-                            child: Text(
-                              "View More",
-                              style: TextStyle(
-                                  color: Color.fromRGBO(255, 124, 50, 1)),
-                            )),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 15.h),
                     Container(
                       width: double.infinity,
-                      height: 160,
+                      height: 160.h,
                       child: Container(
                         width: double.infinity,
-                        height: 140,
+                        height: 140.h,
                         child: ListTile(
                           leading: Image.asset(
                             "assets/PhotoMenu.png",
-                            width: 64,
-                            height: 64,
+                            width: 64.w,
+                            height: 64.h,
                           ),
                           title: Text(
                             'Green Noodle',
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.sp,
+                            ),
                           ),
                           trailing: Text(
                             "\$15",
                             style: TextStyle(
-                                fontSize: 23,
-                                color: Color.fromRGBO(254, 173, 29, 1)),
+                              fontSize: 23.sp,
+                              color: Color.fromRGBO(254, 173, 29, 1),
+                            ),
                           ),
                         ),
                       ),
@@ -295,7 +312,7 @@ class _HomescreenState extends State<Homescreen> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -31,7 +31,7 @@ class SignupSuccessNotification extends StatelessWidget {
                     width: 188.w,
                     fit: BoxFit.contain,
                   ),
-                    Text(
+                  Text(
                     "Congrats!",
                     style: TextStyle(
                       color: Color.fromRGBO(83, 232, 139, 1),
@@ -39,8 +39,8 @@ class SignupSuccessNotification extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
-                    Text(
+                  SizedBox(height: 10.h),
+                  Text(
                     "Your Profile Is Ready To Use",
                     style: TextStyle(
                       color: Colors.black,
@@ -48,19 +48,19 @@ class SignupSuccessNotification extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 200),
-                   InkWell(
-                      // onTap: () => Navigator.pushReplacement(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //       builder: (context) => SignUpPage(),
-                      //     )),
-                      child: CustomButton(text: "Try Order"))
+                  SizedBox(height: 200.h),
+                  InkWell(
+                    // onTap: () => Navigator.pushReplacement(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => SignUpPage(),
+                    //     )),
+                    child: CustomButton(text: "Try Order"),
+                  )
                 ],
               ),
             ),
           ),
-          
         ],
       ),
     );

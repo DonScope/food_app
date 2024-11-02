@@ -32,7 +32,7 @@ class Resetsuccess extends StatelessWidget {
                     width: 188.w,
                     fit: BoxFit.contain,
                   ),
-                    Text(
+                  Text(
                     "Congrats!",
                     style: TextStyle(
                       color: Color.fromRGBO(83, 232, 139, 1),
@@ -40,28 +40,29 @@ class Resetsuccess extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 10),
-                    Text(
-                    "Password reset succesful",
+                  SizedBox(height: 10.h),
+                  Text(
+                    "Password reset successful",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 23.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 200),
-                   InkWell(
-                      onTap: () => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignInPage(),
-                          )),
-                      child: CustomButton(text: "Back"))
+                  SizedBox(height: 200.h),
+                  InkWell(
+                    onTap: () => Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignInPage(),
+                      ),
+                    ),
+                    child: CustomButton(text: "Back"),
+                  ),
                 ],
               ),
             ),
           ),
-          
         ],
       ),
     );

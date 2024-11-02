@@ -39,54 +39,62 @@ class _RateresturantState extends State<Rateresturant> {
                       width: 188.w,
                       fit: BoxFit.contain,
                     ),
+                    SizedBox(height: 20.h), 
                     Text(
-                      "     Thank You! \nEnjoy Your Meal",
+                      "Thank You! \nEnjoy Your Meal",
+                      textAlign: TextAlign.center, 
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 15),
+                    SizedBox(height: 15.h), 
                     Text(
                       "Please rate your Restaurant",
+                      textAlign: TextAlign.center, 
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 35),
+                    SizedBox(height: 35.h), 
                     Image.asset(
                       'assets/Staricon.png',
                       height: 33.h,
                       width: 253.w,
                       fit: BoxFit.contain,
                     ),
-                    SizedBox(height: 45),
+                    SizedBox(height: 45.h),
                     Container(
-                        width: 350,
-                        height: 55,
-                        child: Customtextfieldwithimage(
-                          hintText: "Leave feedback",
-                          image: "assets/editicon.png",
-                        )),
-                    SizedBox(height: 20),
+                      width: 350.w,
+                      height: 55.h,
+                      child: Customtextfieldwithimage(
+                        hintText: "Leave feedback",
+                        image: "assets/editicon.png",
+                      ),
+                    ),
+                    SizedBox(height: 20.h), 
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context) => voucher(),));
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Voucher()),
+                            );
                           },
-                          child: CustomButton(text: "Submit")),
+                          child: CustomButton(text: "Submit"),
+                        ),
                         ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 24, vertical: 12),
+                            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(16.r),
                             ),
                             elevation: 0,
                           ),
@@ -94,7 +102,7 @@ class _RateresturantState extends State<Rateresturant> {
                             'Skip',
                             style: TextStyle(
                               color: Colors.green,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

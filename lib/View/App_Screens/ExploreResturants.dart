@@ -49,85 +49,88 @@ class _ExploreRestaurantState extends State<ExploreRestaurant> {
         body: ListView(children: [
       Column(children: [
         Padding(
-          padding: const EdgeInsets.only(top: 25),
+          padding: EdgeInsets.only(top: 25.h),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
                 "Find Your \nFavorite Food",
                 style: TextStyle(
-                    fontSize: 31,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromRGBO(9, 5, 28, 1)),
+                  fontSize: 31.sp,
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromRGBO(9, 5, 28, 1),
+                ),
               ),
               Container(
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(250, 253, 255, 1),
-                      borderRadius: BorderRadius.circular(15)),
-                  width: 45,
-                  height: 45,
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Icon(
-                          Icons.notifications_none_outlined,
-                          color: Color.fromRGBO(83, 232, 139, 1),
-                          size: 30,
+                decoration: BoxDecoration(
+                  color: const Color.fromRGBO(250, 253, 255, 1),
+                  borderRadius: BorderRadius.circular(15.r),
+                ),
+                width: 45.w,
+                height: 45.h,
+                child: Stack(
+                  children: [
+                    Center(
+                      child: Icon(
+                        Icons.notifications_none_outlined,
+                        color: const Color.fromRGBO(83, 232, 139, 1),
+                        size: 30.sp,
+                      ),
+                    ),
+                    Positioned(
+                      right: 6.w,
+                      top: 6.h,
+                      child: Container(
+                        width: 6.w,
+                        height: 6.h,
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          shape: BoxShape.circle,
                         ),
                       ),
-                      Positioned(
-                        right: 6,
-                        top: 6,
-                        child: Container(
-                          width: 6,
-                          height: 6,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            shape: BoxShape.circle,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ))
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 10, left: 15, right: 20),
+          padding: EdgeInsets.only(top: 10.h, left: 15.w, right: 20.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 width: 270.w,
                 child: TextField(
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black, fontSize: 14.sp),
                   decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    prefixIconColor: Color.fromRGBO(218, 99, 23, 1.6),
+                    prefixIcon: Icon(Icons.search, size: 24.sp),
+                    prefixIconColor: const Color.fromRGBO(218, 99, 23, 1.6),
                     hintText: 'What do you want to order?',
                     hintStyle: TextStyle(
-                      color: Color.fromRGBO(218, 99, 23, 1.6),
-                      fontSize: 16.0,
+                      color: const Color.fromRGBO(218, 99, 23, 1.6),
+                      fontSize: 16.sp,
                     ),
-                    fillColor: Color.fromRGBO(249, 168, 77, 0.215),
+                    fillColor: const Color.fromRGBO(249, 168, 77, 0.215),
                     filled: true,
                     contentPadding: EdgeInsets.symmetric(
-                      vertical: 20.0,
-                      horizontal: 16.0,
+                      vertical: 20.h,
+                      horizontal: 16.w,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(
+                      borderRadius: BorderRadius.circular(20.r),
+                      borderSide: const BorderSide(
                         color: Colors.white,
                         width: 0.5,
                       ),
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                      borderSide: BorderSide(
+                      borderRadius: BorderRadius.circular(20.r),
+                      borderSide: const BorderSide(
                         color: Colors.green,
                         width: 2.0,
                       ),
@@ -136,91 +139,101 @@ class _ExploreRestaurantState extends State<ExploreRestaurant> {
                 ),
               ),
               Container(
-                  width: 49,
-                  height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Color.fromRGBO(249, 169, 77, 0.215)),
-                  child: IconButton(
-                      iconSize: 25,
-                      color: Colors.green,
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => FilterScreen(),
-                            ));
-                      },
-                      icon: Icon(
-                        Icons.sort,
-                        color: Color.fromRGBO(218, 99, 23, 1.6),
-                      ))),
+                width: 49.w,
+                height: 50.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: const Color.fromRGBO(249, 169, 77, 0.215),
+                ),
+                child: IconButton(
+                  iconSize: 25.sp,
+                  color: Colors.green,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FilterScreen(),
+                      ),
+                    );
+                  },
+                  icon: Icon(
+                    Icons.sort,
+                    color: const Color.fromRGBO(218, 99, 23, 1.6),
+                    size: 24.sp,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 30, top: 20),
+          padding: EdgeInsets.only(left: 30.w, top: 20.h),
           child: Row(
             children: [
               Text(
                 "Popular Restaurant",
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
-                    color: Colors.black),
-              )
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15.sp,
+                  color: Colors.black,
+                ),
+              ),
             ],
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.w),
           child: GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 30,
-                childAspectRatio: 0.85,
-              ),
-              itemCount: items.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  width: 100,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.white,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20),
-                        child: CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage(items[index]['image']!),
-                          backgroundColor: Colors.white,
-                        ),
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 20.w,
+              mainAxisSpacing: 30.h,
+              childAspectRatio: 0.85,
+            ),
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return Container(
+                width: 100.w,
+                height: 10.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.r),
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20.h),
+                      child: CircleAvatar(
+                        radius: 50.r,
+                        backgroundImage: AssetImage(items[index]['image']!),
+                        backgroundColor: Colors.white,
                       ),
-                      Text(
-                        items[index]['mainText']!,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Text(
+                      items[index]['mainText']!,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.sp,
                       ),
-                      Text(
-                        items[index]['smallText']!,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                            color: Colors.grey),
+                    ),
+                    Text(
+                      items[index]['smallText']!,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13.sp,
+                        color: Colors.grey,
                       ),
-                    ],
-                  ),
-                );
-              }),
-        )
-      ])
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+        ),
+      ]),
     ]));
   }
 }

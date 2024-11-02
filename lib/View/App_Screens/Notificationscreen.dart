@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Notificationscreen extends StatefulWidget {
-  const Notificationscreen({super.key});
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
 
   @override
-  State<Notificationscreen> createState() => _NotificationscreenState();
+  State<NotificationScreen> createState() => _NotificationScreenState();
 }
 
-class _NotificationscreenState extends State<Notificationscreen> {
+class _NotificationScreenState extends State<NotificationScreen> {
+  final List<Map<String, String>> notifications = [
+    {
+      'message': 'Your order has been taken by the driver',
+      'time': 'Recently',
+      'icon': 'assets/checked.png',
+    },
+    {
+      'message': 'Topup for \$100 was successful',
+      'time': '10.00 AM',
+      'icon': 'assets/Coin.png',
+    },
+    {
+      'message': 'Your order has been canceled',
+      'time': '22 June 2021',
+      'icon': 'assets/Xbutton.png',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +35,11 @@ class _NotificationscreenState extends State<Notificationscreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Image.asset("assets/Icon Back.png")),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Image.asset("assets/Icon Back.png"),
+        ),
       ),
       body: Stack(
         children: [
@@ -33,180 +52,59 @@ class _NotificationscreenState extends State<Notificationscreen> {
           SafeArea(
             child: Padding(
               padding: EdgeInsets.all(12),
-              child: SingleChildScrollView(
-                physics: NeverScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Notification',
-                      style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+              child: ListView.builder(
+                itemCount: notifications.length,
+                itemBuilder: (context, index) {
+                  final notification = notifications[index];
+                  return Container(
+                    padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+                    width: 350.w,
+                    height: 105.h,
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(12, 221, 221, 221),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                    SizedBox(height: 15),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.h, horizontal: 16.w),
-                      width: 350.w,
-                      height: 105.h,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(12, 221, 221, 221),
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 40.w,
-                            height: 40.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Image.asset(
-                              "assets/checked.png",
-                            ),
-                          ),
-                          SizedBox(width: 12.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Your order has been taken by \nthe driver",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SizedBox(height: 4.h),
-                              Row(
-                                children: [
-                                  Text(
-                                    "Recently",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14.sp,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
                         Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.h, horizontal: 16.w),
-                      width: 350.w,
-                      height: 105.h,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(12, 221, 221, 221),
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 40.w,
-                            height: 40.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Image.asset(
-                              "assets/Coin.png",
-                            ),
+                          width: 40.w,
+                          height: 40.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.r),
                           ),
-                          SizedBox(width: 12.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Topup for \$100 was successful",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
+                          child: Image.asset(notification['icon']!),
+                        ),
+                        SizedBox(width: 12.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              notification['message']!,
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
                               ),
-                              SizedBox(height: 4.h),
-                              Row(
-                                children: [
-                                  Text(
-                                    "10.00 Am",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14.sp,
-                                    ),
-                                  ),
-                                ],
+                            ),
+                            SizedBox(height: 4.h),
+                            Text(
+                              notification['time']!,
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14.sp,
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                        Container(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 10.h, horizontal: 16.w),
-                      width: 350.w,
-                      height: 105.h,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(12, 221, 221, 221),
-                        borderRadius: BorderRadius.circular(20.r),
-                      ),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 40.w,
-                            height: 40.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.r),
-                            ),
-                            child: Image.asset(
-                              "assets/Xbutton.png",
-                            ),
-                          ),
-                          SizedBox(width: 12.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Your order has been canceled",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              SizedBox(height: 4.h),
-                              Row(
-                                children: [
-                                  Text(
-                                    "22 Juny 2021",
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 14.sp,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ),
-          )
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/RegistrationProcess/Payment_Process.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 import 'package:food_app/View/Widgets/CustomTextFieldWithImage.dart';
@@ -17,14 +18,16 @@ class _SignupProcessState extends State<SignupProcess> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
-            backgroundColor: Colors.transparent,
-            leading: IconButton(onPressed: () {
-                Navigator.pop(context); 
-            },   icon: Image.asset("assets/Icon Back.png")),
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Image.asset("assets/Icon Back.png")),
       ),
-      body: Stack( 
-        children: [ 
-             Image.asset(
+      body: Stack(
+        children: [
+          Image.asset(
             'assets/Pattern2.png',
             fit: BoxFit.cover,
             width: double.infinity,
@@ -32,28 +35,44 @@ class _SignupProcessState extends State<SignupProcess> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: SingleChildScrollView(
-                     physics: NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [ 
-                    Text('Fill in your bio to get started', style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.bold),),
-                    SizedBox(height: 50),
-                    Text('This data will be displayed in your account \nprofile for security', style: TextStyle(fontSize: 14, color: Colors.black),),
-                     SizedBox(height: 20),
-                  Customtextfieldwithimage(hintText: "First Name"),
-                   SizedBox(height: 15),
+                  children: [
+                    Text(
+                      'Fill in your bio to get started',
+                      style: TextStyle(
+                          fontSize: 30.sp,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(height: 50.h),
+                    Text(
+                      'This data will be displayed in your account \nprofile for security',
+                      style: TextStyle(fontSize: 14.sp, color: Colors.black),
+                    ),
+                    SizedBox(height: 20.h),
+                    Customtextfieldwithimage(hintText: "First Name"),
+                    SizedBox(height: 15.h),
                     Customtextfieldwithimage(hintText: "Last Name"),
-                     SizedBox(height: 15),
-                      Customtextfieldwithimage(hintText: "Mobile Number"),
-                       SizedBox(height: 200),
-                      Center(
-                        child: GestureDetector(
-                          onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => PaymentProcess(),)),
-                          child: CustomButton(text: "Next")),
-                      )
-                ],),
+                    SizedBox(height: 15.h),
+                    Customtextfieldwithimage(hintText: "Mobile Number"),
+                    SizedBox(height: 200.h),
+                    Center(
+                      child: GestureDetector(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PaymentProcess(),
+                          ),
+                        ),
+                        child: CustomButton(text: "Next"),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           )

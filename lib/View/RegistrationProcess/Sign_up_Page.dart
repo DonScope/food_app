@@ -13,8 +13,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-bool isChecked1 = false;
+  bool isChecked1 = false;
   bool isChecked2 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +60,7 @@ bool isChecked1 = false;
             ),
           ),
           SingleChildScrollView(
-                 physics: NeverScrollableScrollPhysics(),
+            physics: NeverScrollableScrollPhysics(),
             child: Padding(
               padding: EdgeInsets.all(10.w),
               child: Column(
@@ -80,53 +81,52 @@ bool isChecked1 = false;
                     ic: Icon(Icons.remove_red_eye),
                   ),
                   SizedBox(height: 20.h),
-                Row(
-
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Checkbox(
-              value: isChecked1,
-              onChanged: (bool? newValue) {
-                setState(() {
-                  isChecked1 = newValue ?? false;
-                });
-              },
-              activeColor: Colors.blue,
-            ),
-            SizedBox(width: 8),
-            Text(
-              "Keep Me Signed In",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
-                Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Checkbox(
-              value: isChecked2,
-              onChanged: (bool? newValue) {
-                setState(() {
-                  isChecked2 = newValue ?? false;
-                });
-              },
-              activeColor: Colors.blue,
-            ),
-            SizedBox(width: 8),
-            Text(
-              "Email Me About Special Pricing",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
-        ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        value: isChecked1,
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            isChecked1 = newValue ?? false;
+                          });
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "Keep Me Signed In",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        value: isChecked2,
+                        onChanged: (bool? newValue) {
+                          setState(() {
+                            isChecked2 = newValue ?? false;
+                          });
+                        },
+                        activeColor: Colors.blue,
+                      ),
+                      SizedBox(width: 8),
+                      Text(
+                        "Email Me About Special Pricing",
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(height: 10.h),
                   Center(
                     child: InkWell(

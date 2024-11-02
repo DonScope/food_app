@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/ResetPassword/ViaSMS_screen.dart';
 
 class Selectmethod extends StatefulWidget {
-  
   const Selectmethod({super.key});
 
   @override
@@ -11,7 +10,7 @@ class Selectmethod extends StatefulWidget {
 }
 
 class _SelectmethodState extends State<Selectmethod> {
- int selectedIndex = 0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +20,11 @@ class _SelectmethodState extends State<Selectmethod> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Image.asset("assets/Icon Back.png")),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Image.asset("assets/Icon Back.png"),
+        ),
       ),
       body: Stack(
         children: [
@@ -36,41 +36,39 @@ class _SelectmethodState extends State<Selectmethod> {
           ),
           SafeArea(
             child: Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: SingleChildScrollView(
-                     physics: NeverScrollableScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Forgot password?',
                       style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                        fontSize: 30.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                    SizedBox(height: 40),
+                    SizedBox(height: 40.h),
                     Text(
                       'Select which contact details should we use to reset your password',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      style: TextStyle(fontSize: 14.sp, color: Colors.black),
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 25.h),
                     InkWell(
                       onTap: () {
-                       selectedIndex = selectedIndex == 1 ? 0 : 1;
-                        setState(() {
-                          
-                        });
+                        selectedIndex = selectedIndex == 1 ? 0 : 1;
+                        setState(() {});
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+                        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
                         width: 350.w,
                         height: 70.h,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(12, 221, 221, 221),
                           borderRadius: BorderRadius.circular(20.r),
-                          border: Border.all(color: selectedIndex == 1 ? Colors.green : Colors.transparent)
+                          border: Border.all(color: selectedIndex == 1 ? Colors.green : Colors.transparent),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,21 +122,20 @@ class _SelectmethodState extends State<Selectmethod> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 25),
+                    SizedBox(height: 25.h),
                     InkWell(
                       onTap: () {
-                          selectedIndex = selectedIndex == 2 ? 0 : 2;
+                        selectedIndex = selectedIndex == 2 ? 0 : 2;
                         setState(() {});
                       },
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+                        padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
                         width: 350.w,
                         height: 70.h,
                         decoration: BoxDecoration(
                           color: Color.fromARGB(12, 221, 221, 221),
                           borderRadius: BorderRadius.circular(20.r),
-                             border: Border.all(color: selectedIndex == 2 ? Colors.green : Colors.transparent)
+                          border: Border.all(color: selectedIndex == 2 ? Colors.green : Colors.transparent),
                         ),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -192,26 +189,25 @@ class _SelectmethodState extends State<Selectmethod> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 300),
-                     InkWell(
-                        enableFeedback: true,
-                        onTap: () {
-                          if (selectedIndex != 0) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ViasmsScreen(),
-                                ));
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                  content: Text(
-                                      'Please select an option before proceeding')),
-                            );
-                          }
-                        },
-                        child: Center(
-                            child: Container(
+                    SizedBox(height: 300.h),
+                    InkWell(
+                      enableFeedback: true,
+                      onTap: () {
+                        if (selectedIndex != 0) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ViasmsScreen(),
+                            ),
+                          );
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Please select an option before proceeding')),
+                          );
+                        }
+                      },
+                      child: Center(
+                        child: Container(
                           width: 157.w,
                           height: 57.h,
                           decoration: BoxDecoration(
@@ -230,19 +226,23 @@ class _SelectmethodState extends State<Selectmethod> {
                             ),
                           ),
                           child: Center(
-                              child: Text(
-                            "Next",
-                            style: TextStyle(
+                            child: Text(
+                              "Next",
+                              style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 16.sp),
-                          )),
-                        ))),
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

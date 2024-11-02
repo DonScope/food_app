@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/App_Screens/Call_Ringing.dart';
-import 'package:food_app/View/App_Screens/OrderDetails.dart';
-import 'package:food_app/View/BottomNavBar/BottomNav.dart';
+import 'package:food_app/View/onboarding/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +26,6 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: Orderdetails());
+        child: OnBoarding());
   }
 }

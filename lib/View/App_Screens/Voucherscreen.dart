@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/Notificationscreen.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 
-class voucher extends StatefulWidget {
-  const voucher({super.key});
+class Voucher extends StatefulWidget {
+  const Voucher({super.key});
 
   @override
-  State<voucher> createState() => _voucherState();
+  State<Voucher> createState() => _VoucherState();
 }
 
-class _voucherState extends State<voucher> {
+class _VoucherState extends State<Voucher> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +40,7 @@ class _voucherState extends State<voucher> {
               padding: EdgeInsets.all(10.w),
               width: MediaQuery.of(context).size.width,
               child: Padding(
-                padding: EdgeInsets.all(12),
+                padding: EdgeInsets.all(12.w),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -48,22 +48,22 @@ class _voucherState extends State<voucher> {
                     Text(
                       'Voucher Promo',
                       style: TextStyle(
-                          fontSize: 30,
+                          fontSize: 30.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.bold),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    SizedBox(height: 20.h),
                     CustomContainer("Frame.png"),
-                    SizedBox(height: 20),
+                    SizedBox(height: 20.h),
                     CustomContainer("Frame2.png"),
-                    SizedBox(
-                      height: 250.h,
-                    ),
+                    SizedBox(height: 250.h), // Spacer for layout
                     InkWell(
-                      onTap: () => Navigator.push(context,MaterialPageRoute(builder: (context) => Notificationscreen(),)),
-                      child: Center(child: CustomButton(text: "Check Out"))),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NotificationScreen()),
+                      ),
+                      child: Center(child: CustomButton(text: "Check Out")),
+                    ),
                   ],
                 ),
               ),
@@ -80,18 +80,18 @@ class _voucherState extends State<voucher> {
       height: 130.h,
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r), // Make border radius responsive
       ),
       child: Stack(
         children: [
           Image.asset("assets/$img", fit: BoxFit.contain),
           Positioned(
-            right: 5,
-            top: 8.0,
+            right: 5.w,
+            top: 8.0.h,
             child: Text(
               "Special Deal For \nOctober",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 20.sp,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -99,8 +99,8 @@ class _voucherState extends State<voucher> {
             ),
           ),
           Positioned(
-            right: 60,
-            bottom: 10,
+            right: 60.w,
+            bottom: 10.h,
             child: InkWell(
               onTap: () {},
               child: Container(
@@ -108,13 +108,13 @@ class _voucherState extends State<voucher> {
                 height: 40.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                 ),
                 child: Center(
                   child: Text(
                     "Order Now",
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: Colors.greenAccent,
                         fontWeight: FontWeight.bold),
                   ),

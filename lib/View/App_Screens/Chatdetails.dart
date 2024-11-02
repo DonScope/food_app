@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/Model/Chat_Model.dart';
 import 'package:food_app/View/App_Screens/Call_Ringing.dart';
-import 'package:food_app/View/App_Screens/Finishorder.dart';
 
 class Details extends StatefulWidget {
   const Details({super.key});
@@ -17,6 +16,7 @@ class _DetailsState extends State<Details> {
 
   List<ChatModel> Chat = [];
   bool Sender1 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,11 @@ class _DetailsState extends State<Details> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Image.asset("assets/Icon Back.png", width: 60.w, height: 40.h),
+          icon: Image.asset(
+            "assets/Icon Back.png",
+            width: 60.w,
+            height: 40.h,
+          ),
         ),
       ),
       backgroundColor: Colors.white,
@@ -60,50 +64,50 @@ class _DetailsState extends State<Details> {
                     ),
                     SizedBox(height: 15.h),
                     Container(
-                      height: 100,
-                      width: 360,
+                      height: 100.h,
+                      width: 360.w,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(20.r),
                         color: Colors.white,
                       ),
                       child: Row(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(8.0.w),
                             child: Image.asset("assets/Photo Profile.png"),
                           ),
-                          SizedBox(width: 10),
+                          SizedBox(width: 10.w),
                           Column(
                             children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 24, right: 45),
+                                    EdgeInsets.only(top: 24.h, right: 45.w),
                                 child: Text(
                                   "Dianne Russell",
                                   style: TextStyle(
-                                    fontSize: 15,
+                                    fontSize: 15.sp,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                               ),
-                              SizedBox(height: 3),
+                              SizedBox(height: 3.h),
                               Padding(
-                                padding: const EdgeInsets.only(right: 90),
+                                padding: EdgeInsets.only(right: 90.w),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 10),
+                                      padding: EdgeInsets.only(top: 10.h),
                                       child:
                                           Image.asset("assets/Ellipse 184.png"),
                                     ),
-                                    SizedBox(width: 3),
+                                    SizedBox(width: 3.w),
                                     Text(
                                       "Online",
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         color: Colors.grey,
                                       ),
                                     ),
@@ -112,12 +116,12 @@ class _DetailsState extends State<Details> {
                               ),
                             ],
                           ),
-                          SizedBox(width: 70),
+                          Spacer(),
                           Container(
-                            width: 40,
-                            height: 40,
+                            width: 40.w,
+                            height: 40.h,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.r),
                               color: Color.fromARGB(255, 162, 249, 226),
                             ),
                             child: InkWell(
@@ -148,21 +152,24 @@ class _DetailsState extends State<Details> {
                               : Color.fromRGBO(246, 246, 246, 1),
                           tail: true,
                           textStyle: TextStyle(
-                              color: Chat[index].sender == 'chat1'
-                                  ? Colors.white
-                                  : Colors.black,
-                              fontSize: 16),
+                            color: Chat[index].sender == 'chat1'
+                                ? Colors.white
+                                : Colors.black,
+                            fontSize: 16.sp,
+                          ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(16.0.w),
                       child: Container(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 16.0, vertical: 8.0),
+                          horizontal: 16.0.w,
+                          vertical: 8.0.h,
+                        ),
                         decoration: BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.circular(25.0),
+                          borderRadius: BorderRadius.circular(25.0.r),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.3),
@@ -172,7 +179,7 @@ class _DetailsState extends State<Details> {
                           ],
                           border: Border.all(
                             color: Colors.blueAccent,
-                            width: 1.5,
+                            width: 1.5.w,
                           ),
                         ),
                         child: Row(
@@ -189,13 +196,16 @@ class _DetailsState extends State<Details> {
                               icon: Icon(
                                 Icons.send,
                                 color: Colors.green,
+                                size: 24.sp,
                               ),
                               onPressed: () {
-                                Chat.add(ChatModel(Textcontroller.text,
-                                    Sender1 ? 'chat1' : 'chat2'));
-                                Textcontroller.clear();
-                                Sender1 = !Sender1;
-                                setState(() {});
+                                if (Textcontroller.text.isNotEmpty) {
+                                  Chat.add(ChatModel(Textcontroller.text,
+                                      Sender1 ? 'chat1' : 'chat2'));
+                                  Textcontroller.clear();
+                                  Sender1 = !Sender1;
+                                  setState(() {});
+                                }
                               },
                             ),
                           ],
