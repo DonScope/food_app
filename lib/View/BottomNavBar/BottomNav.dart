@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/View/App_Screens/Cartscreen.dart';
 import 'package:food_app/View/App_Screens/Homescreen.dart';
 import 'package:food_app/View/App_Screens/Message.dart';
+import 'package:food_app/View/App_Screens/Profilescreen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class Bottomnav extends StatefulWidget {
@@ -11,43 +13,47 @@ class Bottomnav extends StatefulWidget {
 }
 
 class _BottomnavState extends State<Bottomnav> {
-  int _selectedIndex = 0;
+  int currentIndex = 0;
 
   final List<Widget> _screens = [
     Homescreen(),
+    Profilescreen(),
+    Cartscreen(),
     Chat()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: _screens[_selectedIndex],
         bottomNavigationBar: Container(
-          height: 70,
+          height: 80,
+          margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+          padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.withOpacity(0.3),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3)),
-            ],
+            borderRadius: BorderRadius.circular(10),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-            child: GNav(
-              gap: 6,
-              curve: Curves.bounceIn,
-              iconSize: 24,
-              padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-              duration: Duration(milliseconds: 400),
-              tabBackgroundColor: const Color.fromARGB(255, 45, 193, 0),
-              color: const Color.fromARGB(255, 32, 107, 0),
-              activeColor: const Color.fromARGB(255, 45, 103, 0),
-              rippleColor: Colors.grey[300]!,
-              textStyle: TextStyle(color: Colors.black),
-              tabBorderRadius: 12,
+          child: GNav(
+              onTabChange: (value) {
+                setState(() {
+                  currentIndex = value;
+                });
+              },
+              haptic: true, // haptic feedback
+              tabBorderRadius: 10,
+              tabActiveBorder:
+                  Border.fromBorderSide(BorderSide.none), // tab button border
+              tabBorder:
+                  Border.fromBorderSide(BorderSide.none), // tab button border
+              gap: 8, // the tab button gap between icon and text
+              color: Colors.greenAccent, // unselected icon color
+              activeColor: Colors.greenAccent, // selected icon and text color
+              iconSize: 30, // tab button icon size
+              tabBackgroundColor: Colors.greenAccent.withOpacity(0.5),
+              textStyle: TextStyle(
+                  color: Colors.black), // selected tab background color
+              padding: EdgeInsets.all(10), // navigation bar padding
+              selectedIndex: currentIndex,
               tabs: [
                 GButton(
                   icon: Icons.home,
@@ -58,22 +64,17 @@ class _BottomnavState extends State<Bottomnav> {
                   text: 'Profile',
                 ),
                 GButton(
-                  icon: Icons.shopping_cart,
-                  text: 'Profile',
+                  icon: Icons.card_giftcard,
+                  text: 'Card',
                 ),
                 GButton(
-                  icon: Icons.textsms,
-                  text: 'Massage',
-                ),
-              ],
-              selectedIndex: _selectedIndex,
-              onTabChange: (index) {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
-            ),
-          ),
+                  icon: Icons.message,
+                  text: 'Chat',
+                )
+              ]),
+        ),
+        body: Center(
+          child: _screens.elementAt(currentIndex),
         ));
   }
 }
