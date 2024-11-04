@@ -53,11 +53,17 @@ class _ChatState extends State<Chat> {
                       ),
                     ),
                     SizedBox(height: 15.h),
-                    buildChatItem("Anamwp", "Your Order Just Arrived!", "20:00", "assets/Photo Profile.png"),
+                    buildChatItem("Anamwp", "Your Order Just Arrived!", "20:00",
+                        "assets/Photo Profile.png"),
                     SizedBox(height: 20.h),
-                    buildChatItem("Guy Hawkins", "Your Order Just Arrived!", "20:00", "assets/Photo Profile (1).png"),
+                    buildChatItem("Guy Hawkins", "Your Order Just Arrived!",
+                        "20:00", "assets/Photo Profile (1).png"),
                     SizedBox(height: 20.h),
-                    buildChatItem("Leslie Alexander", "Your Order Just Arrived!", "20:00", "assets/Photo Profile (2).png"),
+                    buildChatItem(
+                        "Leslie Alexander",
+                        "Your Order Just Arrived!",
+                        "20:00",
+                        "assets/Photo Profile (2).png"),
                   ],
                 ),
               ),
@@ -68,10 +74,12 @@ class _ChatState extends State<Chat> {
     );
   }
 
-  Widget buildChatItem(String name, String message, String time, String profileImage) {
+  Widget buildChatItem(
+      String name, String message, String time, String profileImage) {
     return InkWell(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Details()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Details()));
       },
       child: Container(
         height: 100.h,
@@ -114,7 +122,7 @@ class _ChatState extends State<Chat> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(bottom: 41.h),
+              padding: EdgeInsets.only(bottom: 41.h, right: 30.w),
               child: Text(
                 time,
                 style: TextStyle(fontSize: 15.sp, color: Colors.grey),

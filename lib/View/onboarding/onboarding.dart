@@ -7,11 +7,17 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      debugShowCheckedModeBanner: false,
+      theme: CupertinoThemeData(scaffoldBackgroundColor: Colors.white),
       home: OnBoardingSlider(
         headerBackgroundColor: Colors.white,
         pageBackgroundColor: Colors.white,
-        onFinish: (){ 
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage(),));
+        onFinish: () {
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => SignUpPage(),
+              ));
         },
         finishButtonText: 'Next',
         controllerColor: Colors.black,
@@ -34,9 +40,21 @@ class OnBoarding extends StatelessWidget {
                 SizedBox(
                   height: 480,
                 ),
-                Text('Find your  Comfort\n        Food here', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
+                Text(
+                  'Find your  Comfort\n        Food here',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
+                ),
                 SizedBox(height: 25),
-                 Text('Here You Can find a chef or dish for every\n                 taste and color. Enjoy!', style: TextStyle(color: Colors.black, fontSize: 12, ),),
+                Text(
+                  'Here You Can find a chef or dish for every\n                 taste and color. Enjoy!',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                  ),
+                ),
               ],
             ),
           ),
@@ -47,9 +65,21 @@ class OnBoarding extends StatelessWidget {
                 SizedBox(
                   height: 480,
                 ),
-                     Text('Food Ninja is Where Your \n     Comfort Food Lives', style: TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),),
-                          SizedBox(height: 25),
-                          Text('Enjoy a fast and smooth food delivery at\n                     your doorstep', style: TextStyle(color: Colors.black, fontSize: 12, ),),
+                Text(
+                  'Food Ninja is Where Your \n     Comfort Food Lives',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 25),
+                Text(
+                  'Enjoy a fast and smooth food delivery at\n                     your doorstep',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                  ),
+                ),
               ],
             ),
           ),

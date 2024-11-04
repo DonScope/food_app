@@ -17,7 +17,7 @@ class _CallRingingState extends State<CallRinging> {
   int seconds = 0;
   int minutes = 0;
   int hours = 0;
-
+//ERROR INSIDE THIS PAGE TO FIX LATER
   @override
   void initState() {
     super.initState();
@@ -53,9 +53,6 @@ class _CallRingingState extends State<CallRinging> {
 
   @override
   Widget build(BuildContext context) {
-    // Initialize ScreenUtil for responsive sizing
-    ScreenUtil.init(context, designSize: Size(375, 812));
-
     String formattedTime = hours.toString().padLeft(2, '0') +
         ':' +
         minutes.toString().padLeft(2, '0') +
@@ -152,7 +149,7 @@ class _CallRingingState extends State<CallRinging> {
                         SizedBox(width: 30.w),
                         InkWell(
                           onTap: () {
-                            timer?.cancel(); 
+                            timer?.cancel();
                             Navigator.push(
                               context,
                               MaterialPageRoute(

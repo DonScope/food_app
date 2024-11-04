@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/Model/Data.dart';
 import 'package:food_app/View/App_Screens/Filterscreen.dart';
 
 class ExploreMenu extends StatefulWidget {
@@ -10,13 +11,16 @@ class ExploreMenu extends StatefulWidget {
 }
 
 class _ExploreMenuState extends State<ExploreMenu> {
-  List<Map<String, String>> ExploreMenuList = [
+  int counter = 1;
+  List<Map<String, dynamic>> ExploreMenuList = [
     {
       "title": "Herbal Pancake",
       "subtitle": "Warung Herbal",
       "price": "\$7",
       "image": "assets/Herbal.png",
       "food": "herbal",
+      "id": "1",
+      "count": 1
     },
     {
       "title": "Fruit Salad",
@@ -24,6 +28,8 @@ class _ExploreMenuState extends State<ExploreMenu> {
       "price": "\$5",
       "image": "assets/FruitSalad.png",
       "food": "soup",
+      "id": "2",
+      "count": 1
     },
     {
       "title": "Green Noddle",
@@ -31,6 +37,8 @@ class _ExploreMenuState extends State<ExploreMenu> {
       "price": "\$15",
       "image": "assets/PhotoMenu.png",
       "food": "soup",
+      "id": "3",
+      "count": 1
     },
   ];
 
@@ -91,19 +99,22 @@ class _ExploreMenuState extends State<ExploreMenu> {
                         Container(
                           width: 270.w,
                           child: TextField(
-                            style: TextStyle(color: Colors.black, fontSize: 16.sp),
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16.sp),
                             decoration: InputDecoration(
                               prefixIcon: Icon(
                                 Icons.search,
                                 size: 24.sp,
                               ),
-                              prefixIconColor: const Color.fromRGBO(218, 99, 23, 1.6),
+                              prefixIconColor:
+                                  const Color.fromRGBO(218, 99, 23, 1.6),
                               hintText: 'What do you want to order?',
                               hintStyle: TextStyle(
                                 color: const Color.fromRGBO(218, 99, 23, 1.6),
                                 fontSize: 16.sp,
                               ),
-                              fillColor: const Color.fromRGBO(249, 168, 77, 0.215),
+                              fillColor:
+                                  const Color.fromRGBO(249, 168, 77, 0.215),
                               filled: true,
                               contentPadding: EdgeInsets.symmetric(
                                 vertical: 20.h,
@@ -176,31 +187,48 @@ class _ExploreMenuState extends State<ExploreMenu> {
                         itemCount: ExploreMenuList.length,
                         itemBuilder: (context, index) {
                           var menuItem = ExploreMenuList[index];
-                          return Container(
-                            height: 120.h,
-                            child: ListTile(
-                              leading: Image.asset(
-                                menuItem["image"]!,
-                                width: 40.w,
-                                height: 64.h,
-                                fit: BoxFit.contain,
-                              ),
-                              title: Text(
-                                menuItem["title"]!,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20.sp,
+                          return InkWell(
+                            onTap: () {
+                              if (cartItems.contains(ExploreMenuList[index])) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        '${menuItem['title']} Already added to your cart'),
+                                    duration: Duration(seconds: 2),
+                                  ),
+                                );
+                                counter++;
+                              } else {
+                                cartItems.add(ExploreMenuList[index]);
+                              }
+                            },
+                            child: Container(
+                              height: 120.h,
+                              child: ListTile(
+                                leading: Image.asset(
+                                  menuItem["image"]!,
+                                  width: 40.w,
+                                  height: 64.h,
+                                  fit: BoxFit.contain,
                                 ),
-                              ),
-                              subtitle: Text(
-                                menuItem["subtitle"]!,
-                                style: TextStyle(fontSize: 14.sp),
-                              ),
-                              trailing: Text(
-                                menuItem["price"]!,
-                                style: TextStyle(
-                                  fontSize: 23.sp,
-                                  color: const Color.fromRGBO(254, 173, 29, 1),
+                                title: Text(
+                                  menuItem["title"]!,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.sp,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  menuItem["subtitle"]!,
+                                  style: TextStyle(fontSize: 14.sp),
+                                ),
+                                trailing: Text(
+                                  menuItem["price"]!,
+                                  style: TextStyle(
+                                    fontSize: 23.sp,
+                                    color:
+                                        const Color.fromRGBO(254, 173, 29, 1),
+                                  ),
                                 ),
                               ),
                             ),

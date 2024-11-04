@@ -1,34 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/Model/Data.dart';
 
 class Orderdetails extends StatefulWidget {
-  const Orderdetails({super.key});
+  final Map<String, String>? item;
+  final int? counter;
+  const Orderdetails({this.item, this.counter});
 
   @override
   State<Orderdetails> createState() => _OrderdetailsState();
 }
 
 class _OrderdetailsState extends State<Orderdetails> {
-  int number = 1;
-
-  void increment() {
-    setState(() {
-      number++;
-    });
-  }
-
-  void decrement() {
-    if (number > 1) {
-      setState(() {
-        number--;
-      });
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           Image.asset(
@@ -39,85 +25,150 @@ class _OrderdetailsState extends State<Orderdetails> {
           ),
           SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(15.w),  
+              padding: EdgeInsets.all(15.w),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20.h), 
+                    SizedBox(height: 20.h),
                     Text(
                       'Order details',
                       style: TextStyle(
-                        fontSize: 30.sp, 
+                        fontSize: 30.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20.h),  
-                    Container(
-                      width: 347.w,
-                      height: 120.h,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.r),
-                        color: Colors.white,  
+                    SizedBox(height: 20.h),
+                    ListView.separated(
+                      shrinkWrap: true,
+                      physics: ScrollPhysics(),
+                      itemCount: cartItems.length,
+                      separatorBuilder: (context, index) => SizedBox(
+                        height: 15.h,
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.all(12.w),  
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 62.w,
-                              height: 62.h,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(15.r),
-                                color: Colors.grey.shade200,  // Fallback color
+                      itemBuilder: (context, index) {
+                        var items = cartItems[index];
+                        return Dismissible(
+                          direction: DismissDirection.endToStart,
+                          onDismissed: (direction) {
+                            if (direction == DismissDirection.endToStart) {
+                              setState(() {
+                                cartItems.removeAt(index);
+                              });
+                            }
+
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content:
+                                    Text('${items['title']} removed from menu'),
+                                duration: Duration(seconds: 2),
                               ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(15.r),
-                                child: Image.asset("assets/FruitSalad.png"),
+                            );
+                          },
+                          background: Container(
+                            height: 50.h,
+                            color: Colors.orange,
+                            padding: EdgeInsets.only(right: 30),
+                            margin: EdgeInsets.only(top: 10),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Icon(
+                                Icons.delete,
+                                color: Colors.white,
+                                size: 30.sp,
                               ),
                             ),
-                            SizedBox(width: 10.w),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                          ),
+                          key: Key(items["id"].toString()),
+                          child: Container(
+                            width: 347.w,
+                            height: 120.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.r),
+                              color: Colors.white,
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.all(12.w),
+                              child: Row(
                                 children: [
-                                  SizedBox(height: 10.h),
-                                  Text(
-                                    "Spicy Fresh Crab",
-                                    style: TextStyle(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.bold,
+                                  Container(
+                                    width: 62.w,
+                                    height: 62.h,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.r),
+                                      color: Colors.grey.shade200,
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(15.r),
+                                      child: Image.asset(
+                                          items["image"].toString()),
                                     ),
                                   ),
-                                  Text(
-                                    "Waroenk Kita",
-                                    style: TextStyle(
-                                      fontSize: 14.sp,
-                                      color: Color.fromRGBO(59, 59, 59, 1),
+                                  SizedBox(width: 10.w),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(height: 10.h),
+                                        Text(
+                                          items["title"].toString(),
+                                          style: TextStyle(
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        Text(
+                                          items["subtitle"].toString(),
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color:
+                                                Color.fromRGBO(59, 59, 59, 1),
+                                          ),
+                                        ),
+                                        SizedBox(height: 5.h),
+                                        Text(
+                                          items["price"].toString(),
+                                          style: TextStyle(
+                                            fontSize: 19.sp,
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Color.fromRGBO(83, 232, 139, 1),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(height: 5.h),
-                                  Text(
-                                    "\$ 35",
-                                    style: TextStyle(
-                                      fontSize: 19.sp,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(83, 232, 139, 1),
-                                    ),
+                                  SizedBox(width: 30.w),
+                                  _buildQuantityButton(
+                                    Icons.remove,
+                                    () {
+                                      setState(() {
+                                        if (items["count"] > 1) {
+                                          items["count"]--;
+                                        }
+                                      });
+                                    },
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  Text("${items["count"]}",
+                                      style: TextStyle(fontSize: 16.sp)),
+                                  SizedBox(width: 15.w),
+                                  _buildQuantityButton(
+                                    Icons.add,
+                                    () {
+                                      setState(() {
+                                        items["count"]++;
+                                      });
+                                    },
                                   ),
                                 ],
                               ),
                             ),
-                            SizedBox(width: 30.w),
-                            _buildQuantityButton(Icons.remove, decrement),
-                            SizedBox(width: 10.w),
-                            Text("$number", style: TextStyle(fontSize: 16.sp)),
-                            SizedBox(width: 15.w),
-                            _buildQuantityButton(Icons.add, increment),
-                          ],
-                        ),
-                      ),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),

@@ -39,27 +39,27 @@ class _RateresturantState extends State<Rateresturant> {
                       width: 188.w,
                       fit: BoxFit.contain,
                     ),
-                    SizedBox(height: 20.h), 
+                    SizedBox(height: 20.h),
                     Text(
                       "Thank You! \nEnjoy Your Meal",
-                      textAlign: TextAlign.center, 
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 30.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 15.h), 
+                    SizedBox(height: 15.h),
                     Text(
                       "Please rate your Restaurant",
-                      textAlign: TextAlign.center, 
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 35.h), 
+                    SizedBox(height: 35.h),
                     Image.asset(
                       'assets/Staricon.png',
                       height: 33.h,
@@ -75,7 +75,7 @@ class _RateresturantState extends State<Rateresturant> {
                         image: "assets/editicon.png",
                       ),
                     ),
-                    SizedBox(height: 20.h), 
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -83,7 +83,8 @@ class _RateresturantState extends State<Rateresturant> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => Voucher()),
+                              MaterialPageRoute(
+                                  builder: (context) => Voucher()),
                             );
                           },
                           child: CustomButton(text: "Submit"),
@@ -92,7 +93,8 @@ class _RateresturantState extends State<Rateresturant> {
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
-                            padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24.w, vertical: 12.h),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16.r),
                             ),

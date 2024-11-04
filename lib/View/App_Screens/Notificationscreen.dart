@@ -57,7 +57,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 itemBuilder: (context, index) {
                   final notification = notifications[index];
                   return Container(
-                    padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
                     width: 350.w,
                     height: 105.h,
                     decoration: BoxDecoration(
@@ -83,7 +84,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             Text(
                               notification['message']!,
                               style: TextStyle(
-                                fontSize: 14.sp,
+                                fontSize: 12.sp,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,
                               ),

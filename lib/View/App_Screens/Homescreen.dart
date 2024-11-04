@@ -221,28 +221,77 @@ class _HomescreenState extends State<Homescreen> {
                         ),
                       ],
                     ),
-                    Container(
-                      width: double.infinity,
-                      height: 200.h,
-                      color: Colors.transparent,
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: Images.length,
-                        itemBuilder: (context, index) {
-                          return Container(
-                            color: Colors.transparent,
-                            height: 200.h,
-                            width: 190.w,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: 12.h),
-                              child: Image.asset(
-                                Images[index],
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          );
-                        },
-                      ),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Container(
+                          height: 184.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(22.r),
+                              color: Colors.white),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 73.h,
+                                  width: 96.w,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage("assets/Vegan.png"),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text(
+                                  "Vegan Resto",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17.sp),
+                                ),
+                                Text(
+                                  "12 Mins",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13.sp,
+                                      color: Colors.grey),
+                                )
+                              ]),
+                        )),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        Expanded(
+                            child: Container(
+                          height: 184.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(22.r),
+                              color: Colors.white),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  height: 73.h,
+                                  width: 96.w,
+                                  decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage("assets/Healthy.png"),
+                                          fit: BoxFit.cover)),
+                                ),
+                                Text(
+                                  "Healthy Food",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 17.sp),
+                                ),
+                                Text(
+                                  "8 Mins",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 13.sp,
+                                      color: Colors.grey),
+                                )
+                              ]),
+                        )),
+                      ],
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -281,28 +330,31 @@ class _HomescreenState extends State<Homescreen> {
                     SizedBox(height: 15.h),
                     Container(
                       width: double.infinity,
-                      height: 160.h,
+                      height: 80.h,
+                      color: Colors.white,
                       child: Container(
                         width: double.infinity,
                         height: 140.h,
-                        child: ListTile(
-                          leading: Image.asset(
-                            "assets/PhotoMenu.png",
-                            width: 64.w,
-                            height: 64.h,
-                          ),
-                          title: Text(
-                            'Green Noodle',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20.sp,
+                        child: Center(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/PhotoMenu.png",
+                              width: 64.w,
+                              height: 64.h,
                             ),
-                          ),
-                          trailing: Text(
-                            "\$15",
-                            style: TextStyle(
-                              fontSize: 23.sp,
-                              color: Color.fromRGBO(254, 173, 29, 1),
+                            title: Text(
+                              'Green Noodle',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp,
+                              ),
+                            ),
+                            trailing: Text(
+                              "\$15",
+                              style: TextStyle(
+                                fontSize: 23.sp,
+                                color: Color.fromRGBO(254, 173, 29, 1),
+                              ),
                             ),
                           ),
                         ),

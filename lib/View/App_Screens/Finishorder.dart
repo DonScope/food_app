@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/Ratefood.dart';
+import 'package:food_app/View/App_Screens/Voucherscreen.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 import 'package:food_app/View/Widgets/CustomTextFieldWithImage.dart';
 
@@ -88,7 +89,13 @@ class _FinishorderState extends State<Finishorder> {
                           child: CustomButton(text: "Submit"),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Voucher(),
+                                ));
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.white,
                             padding: EdgeInsets.symmetric(

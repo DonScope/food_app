@@ -56,11 +56,12 @@ class _VoucherState extends State<Voucher> {
                     CustomContainer("Frame.png"),
                     SizedBox(height: 20.h),
                     CustomContainer("Frame2.png"),
-                    SizedBox(height: 250.h), // Spacer for layout
+                    SizedBox(height: 250.h),
                     InkWell(
                       onTap: () => Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => NotificationScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => NotificationScreen()),
                       ),
                       child: Center(child: CustomButton(text: "Check Out")),
                     ),
@@ -80,7 +81,7 @@ class _VoucherState extends State<Voucher> {
       height: 130.h,
       decoration: BoxDecoration(
         color: Colors.transparent,
-        borderRadius: BorderRadius.circular(12.r), // Make border radius responsive
+        borderRadius: BorderRadius.circular(12.r),
       ),
       child: Stack(
         children: [
@@ -100,7 +101,7 @@ class _VoucherState extends State<Voucher> {
           ),
           Positioned(
             right: 60.w,
-            bottom: 10.h,
+            bottom: 15.h,
             child: InkWell(
               onTap: () {},
               child: Container(
