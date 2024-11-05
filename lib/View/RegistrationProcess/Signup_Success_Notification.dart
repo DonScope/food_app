@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:food_app/View/RegistrationProcess/Sign_up_Page.dart';
 import 'package:food_app/View/Widgets/CustomButton.dart';
 
 class SignupSuccessNotification extends StatelessWidget {
@@ -50,11 +51,11 @@ class SignupSuccessNotification extends StatelessWidget {
                   ),
                   SizedBox(height: 200.h),
                   InkWell(
-                    // onTap: () => Navigator.pushReplacement(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => SignUpPage(),
-                    //     )),
+                    onTap: () => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(),
+                        )),
                     child: CustomButton(text: "Try Order"),
                   )
                 ],

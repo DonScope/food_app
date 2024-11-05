@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:food_app/View/App_Screens/Finishorder.dart';
 
 class CallRinging extends StatefulWidget {
-  const CallRinging({super.key});
+  final String name;
+  final String Profileimage;
+  CallRinging({required this.name, required this.Profileimage});
 
   @override
   State<CallRinging> createState() => _CallRingingState();
@@ -17,31 +19,36 @@ class _CallRingingState extends State<CallRinging> {
   int seconds = 0;
   int minutes = 0;
   int hours = 0;
-//ERROR INSIDE THIS PAGE TO FIX LATER
   @override
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 5), () {
-      setState(() {
-        isRinging = true;
-        startCallTimer();
-      });
+      if (mounted) {
+        setState(() {
+          isRinging = true;
+          startCallTimer();
+        });
+      }
     });
   }
 
   void startCallTimer() {
     timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      setState(() {
-        seconds++;
-        if (seconds == 60) {
-          seconds = 0;
-          minutes++;
-        }
-        if (minutes == 60) {
-          minutes = 0;
-          hours++;
-        }
-      });
+      if (mounted) {
+        setState(() {
+          seconds++;
+          if (seconds == 60) {
+            seconds = 0;
+            minutes++;
+          }
+          if (minutes == 60) {
+            minutes = 0;
+            hours++;
+          }
+        });
+      } else {
+        timer.cancel();
+      }
     });
   }
 
@@ -78,14 +85,14 @@ class _CallRingingState extends State<CallRinging> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/ManImage.png',
+                      widget.Profileimage,
                       height: 203.h,
                       width: 188.w,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(height: 30.h),
                     Text(
-                      "Courtney Henry",
+                      widget.name,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 30.sp,

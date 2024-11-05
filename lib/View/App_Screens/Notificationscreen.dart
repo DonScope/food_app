@@ -41,72 +41,71 @@ class _NotificationScreenState extends State<NotificationScreen> {
           icon: Image.asset("assets/Icon Back.png"),
         ),
       ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/Pattern2.png',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(12),
-              child: ListView.builder(
-                itemCount: notifications.length,
-                itemBuilder: (context, index) {
-                  final notification = notifications[index];
-                  return Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
-                    width: 350.w,
-                    height: 105.h,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(12, 221, 221, 221),
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 40.w,
-                          height: 40.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
+      body: Container(
+                   width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+          'assets/Pattern2.png',
+        ))),
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(12),
+            child: ListView.builder(
+              itemCount: notifications.length,
+              itemBuilder: (context, index) {
+                final notification = notifications[index];
+                return Container(
+                  padding:
+                      EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
+                  width: 350.w,
+                  height: 105.h,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(12, 221, 221, 221),
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 40.w,
+                        height: 40.h,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: Image.asset(notification['icon']!),
+                      ),
+                      SizedBox(width: 12.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            notification['message']!,
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
-                          child: Image.asset(notification['icon']!),
-                        ),
-                        SizedBox(width: 12.w),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              notification['message']!,
-                              style: TextStyle(
-                                fontSize: 12.sp,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
+                          SizedBox(height: 4.h),
+                          Text(
+                            notification['time']!,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 14.sp,
                             ),
-                            SizedBox(height: 4.h),
-                            Text(
-                              notification['time']!,
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14.sp,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              },
             ),
           ),
-        ],
+        ),
       ),
     );
   }

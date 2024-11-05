@@ -21,57 +21,56 @@ class Resetpassword extends StatelessWidget {
           icon: Image.asset("assets/Icon Back.png"),
         ),
       ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/Pattern2.png',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(10.w),
-              child: SingleChildScrollView(
-                physics: NeverScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Reset your password \nhere',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: Container(
+               width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+          'assets/Pattern2.png',
+        ))),
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(10.w),
+            child: SingleChildScrollView(
+              physics: NeverScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Reset your password \nhere',
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 40.h),
-                    Text(
-                      'Select which contact details should we use to reset your password',
-                      style: TextStyle(fontSize: 14.sp, color: Colors.black),
+                  ),
+                  SizedBox(height: 40.h),
+                  Text(
+                    'Select which contact details should we use to reset your password',
+                    style: TextStyle(fontSize: 14.sp, color: Colors.black),
+                  ),
+                  SizedBox(height: 30.h),
+                  Customtextfieldwithimage(hintText: "New Password"),
+                  SizedBox(height: 25.h),
+                  Customtextfieldwithimage(
+                    hintText: "Confirm Password",
+                    ic: Icon(Icons.remove_red_eye),
+                  ),
+                  SizedBox(height: 255.h),
+                  InkWell(
+                    enableFeedback: true,
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ViasmsScreen()),
                     ),
-                    SizedBox(height: 30.h),
-                    Customtextfieldwithimage(hintText: "New Password"),
-                    SizedBox(height: 25.h),
-                    Customtextfieldwithimage(
-                      hintText: "Confirm Password",
-                      ic: Icon(Icons.remove_red_eye),
-                    ),
-                    SizedBox(height: 255.h),
-                    InkWell(
-                      enableFeedback: true,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ViasmsScreen()),
-                      ),
-                      child: Center(child: CustomButton(text: "Next")),
-                    ),
-                  ],
-                ),
+                    child: Center(child: CustomButton(text: "Next")),
+                  ),
+                ],
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }

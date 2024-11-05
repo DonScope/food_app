@@ -74,7 +74,7 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   SizedBox(height: 20.h),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center, // Center the row
+                    mainAxisAlignment: MainAxisAlignment.center, 
                     children: [
                       Expanded(
                         child: CustomLoginButtons(
@@ -82,7 +82,7 @@ class _SignInPageState extends State<SignInPage> {
                           text: "Facebook",
                         ),
                       ),
-                      SizedBox(width: 15.w), // Make the width responsive
+                      SizedBox(width: 15.w), 
                       Expanded(
                         child: CustomLoginButtons(
                           Leading: "assets/google.png", 
@@ -110,12 +110,11 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   SizedBox(height: 10.h),
                   InkWell(
-                    onTap: () => Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Bottomnav(),
-                      ),
-                    ),
+                    onTap: () => Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(builder: (context) => Bottomnav()),
+  (Route<dynamic> route) => false, 
+),
                     child: CustomButton(text: "Login"),
                   ),
                 ],

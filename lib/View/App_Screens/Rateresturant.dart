@@ -27,7 +27,7 @@ class _RateresturantState extends State<Rateresturant> {
             height: double.infinity,
           ),
           Positioned(
-            top: 200.h,
+            top: 160.h,
             child: Container(
               padding: EdgeInsets.all(10.w),
               child: SingleChildScrollView(

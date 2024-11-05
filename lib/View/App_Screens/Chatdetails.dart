@@ -5,7 +5,9 @@ import 'package:food_app/Model/Chat_Model.dart';
 import 'package:food_app/View/App_Screens/Call_Ringing.dart';
 
 class Details extends StatefulWidget {
-  const Details({super.key});
+  String name;
+  String profileImages;
+  Details({required this.name, required this.profileImages});
 
   @override
   State<Details> createState() => _DetailsState();
@@ -74,7 +76,7 @@ class _DetailsState extends State<Details> {
                         children: [
                           Padding(
                             padding: EdgeInsets.all(8.0.w),
-                            child: Image.asset("assets/Photo Profile.png"),
+                            child: Image.asset(widget.profileImages),
                           ),
                           SizedBox(width: 10.w),
                           Column(
@@ -83,7 +85,7 @@ class _DetailsState extends State<Details> {
                                 padding:
                                     EdgeInsets.only(top: 24.h, right: 45.w),
                                 child: Text(
-                                  "Dianne Russell",
+                                  widget.name,
                                   style: TextStyle(
                                     fontSize: 15.sp,
                                     color: Colors.black,
@@ -126,10 +128,13 @@ class _DetailsState extends State<Details> {
                             ),
                             child: InkWell(
                               onTap: () {
-                                Navigator.push(
+                                Navigator.pushReplacement(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => CallRinging(),
+                                    builder: (context) => CallRinging(
+                                      name: widget.name,
+                                      Profileimage: widget.profileImages,
+                                    ),
                                   ),
                                 );
                               },

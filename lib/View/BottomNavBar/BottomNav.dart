@@ -39,20 +39,20 @@ class _BottomnavState extends State<Bottomnav> {
                   currentIndex = value;
                 });
               },
-              haptic: true, // haptic feedback
+              haptic: true, 
               tabBorderRadius: 10,
               tabActiveBorder:
-                  Border.fromBorderSide(BorderSide.none), // tab button border
+                  Border.fromBorderSide(BorderSide.none), 
               tabBorder:
-                  Border.fromBorderSide(BorderSide.none), // tab button border
-              gap: 8, // the tab button gap between icon and text
-              color: Colors.greenAccent, // unselected icon color
-              activeColor: Colors.greenAccent, // selected icon and text color
-              iconSize: 30, // tab button icon size
+                  Border.fromBorderSide(BorderSide.none), 
+              gap: 8, 
+              color: Colors.greenAccent, 
+              activeColor: Colors.greenAccent, 
+              iconSize: 30, 
               tabBackgroundColor: Colors.greenAccent.withOpacity(0.5),
               textStyle: TextStyle(
-                  color: Colors.black), // selected tab background color
-              padding: EdgeInsets.all(10), // navigation bar padding
+                  color: Colors.black), 
+              padding: EdgeInsets.all(10), 
               selectedIndex: currentIndex,
               tabs: [
                 GButton(

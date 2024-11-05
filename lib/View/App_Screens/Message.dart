@@ -28,48 +28,44 @@ class _ChatState extends State<Chat> {
           icon: Image.asset("assets/Icon Back.png", width: 24.w, height: 24.h),
         ),
       ),
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/Pattern2.png',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          SafeArea(
-            child: Padding(
-              padding: EdgeInsets.all(12.w),
-              child: SingleChildScrollView(
-                physics: const NeverScrollableScrollPhysics(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Chat',
-                      style: TextStyle(
-                        fontSize: 30.sp,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage(
+          'assets/Pattern2.png',
+        ))),
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(12.w),
+            child: SingleChildScrollView(
+              physics: const NeverScrollableScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Chat',
+                    style: TextStyle(
+                      fontSize: 30.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
                     ),
-                    SizedBox(height: 15.h),
-                    buildChatItem("Anamwp", "Your Order Just Arrived!", "20:00",
-                        "assets/Photo Profile.png"),
-                    SizedBox(height: 20.h),
-                    buildChatItem("Guy Hawkins", "Your Order Just Arrived!",
-                        "20:00", "assets/Photo Profile (1).png"),
-                    SizedBox(height: 20.h),
-                    buildChatItem(
-                        "Leslie Alexander",
-                        "Your Order Just Arrived!",
-                        "20:00",
-                        "assets/Photo Profile (2).png"),
-                  ],
-                ),
+                  ),
+                  SizedBox(height: 15.h),
+                  buildChatItem("Anamwp", "Your Order Just Arrived!", "20:00",
+                      "assets/Photo Profile.png"),
+                  SizedBox(height: 20.h),
+                  buildChatItem("Guy Hawkins", "Your Order Just Arrived!",
+                      "20:00", "assets/Photo Profile (1).png"),
+                  SizedBox(height: 20.h),
+                  buildChatItem("Leslie Alexander", "Your Order Just Arrived!",
+                      "20:00", "assets/Photo Profile (2).png"),
+                ],
               ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }
@@ -79,7 +75,12 @@ class _ChatState extends State<Chat> {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Details()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => Details(
+                      name: name,
+                      profileImages: profileImage,
+                    )));
       },
       child: Container(
         height: 100.h,
