@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:food_app/View/BottomNavBar/BottomNav.dart';
-import 'package:food_app/View/Checkout/Payments.dart';
-import 'package:food_app/View/Checkout/Your_orders.dart';
-import 'package:food_app/View/DetailPages/DetailProduct.dart';
-import 'package:food_app/View/onboarding/onboarding.dart';
+import 'package:food_app/View/App_Screens/Profilescreen.dart';
+import 'package:food_app/View/onboarding/lottie_screen.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +29,6 @@ class MyApp extends StatelessWidget {
             home: child,
           );
         },
-        child: Bottomnav());
+        child: LottieScreen());
   }
 }
